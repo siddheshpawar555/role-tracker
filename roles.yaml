@@ -1,0 +1,103 @@
+# Role families from "250 target employers and role matches".
+# A job is kept when its TITLE matches any family's `include` regex and no `exclude` regex.
+# Regexes are case-insensitive Python regular expressions.
+
+# Titles matching any of these are dropped everywhere.
+global_exclude:
+  - '\bintern(ship)?\b'
+  - '\bco-?op\b'
+  - '\bstudent\b'
+  - '\bsoftware\b'
+  - '\bfirmware\b'
+  - '\bsales\b'
+  - '\bdirector\b'
+  - '\bvice president\b'
+  - '\bvp\b'
+  - '\btechnician\b'
+  - '\boperator\b'
+  - '\bassembler\b'
+
+# Keywords sent to career-site search boxes (for sites that need a search term).
+search_terms:
+  - industrial engineer
+  - manufacturing engineer
+  - process engineer
+  - continuous improvement
+  - operational excellence
+  - lean
+  - production engineer
+  - quality engineer
+  - supplier quality
+  - validation engineer
+  - CAPA
+  - project engineer
+  - operations analyst
+  - NPI engineer
+  - packaging engineer
+  - product engineer
+
+families:
+  - id: 1
+    name: Industrial Engineer
+    tier: Very strong
+    include: ['\bindustrial (and systems )?engineer', '\bindustrial engineering\b']
+  - id: 2
+    name: Manufacturing Engineer
+    tier: Very strong
+    include: ['\bmanufacturing engineer', '\bmfg\.? engineer', '\bmanufacturing engineering (specialist|lead|analyst)']
+  - id: 3
+    name: Process Engineer
+    tier: Very strong
+    include: ['\bprocess engineer', '\bmanufacturing process', '\bprocess (development|improvement) engineer', '\bprocess engineering\b']
+    exclude: ['\bbusiness process']
+  - id: 4
+    name: Continuous Improvement Engineer
+    tier: Very strong
+    include: ['\bcontinuous improvement', '\bkaizen\b', '\bCI (engineer|specialist|lead|manager)\b']
+  - id: 5
+    name: Operational Excellence / Lean Engineer
+    tier: Strong
+    include: ['\boperational excellence', '\bop(erations)? ?ex\b', '\blean (engineer|specialist|leader|lead|manager|coordinator|champion|practitioner)', '\blean manufacturing', '\blean six sigma', '\bsix sigma']
+  - id: 6
+    name: Production Engineer
+    tier: Strong
+    include: ['\bproduction (systems |support |process )?engineer', '\bproduction engineering\b']
+  - id: 7
+    name: Quality Engineer
+    tier: Strong
+    include: ['\bquality engineer', '\bmanufacturing quality', '\bprocess quality engineer', '\bquality assurance engineer', '\bQE\b']
+    exclude: ['\bsupplier quality', '\bquality systems', '\btest automation', '\bsdet\b']
+  - id: 8
+    name: Supplier Quality Engineer
+    tier: Strong (conditional)
+    include: ['\bsupplier (quality|development) engineer', '\bsupplier quality', '\bSQE\b']
+  - id: 9
+    name: Validation Engineer
+    tier: Strong (conditional)
+    include: ['\bvalidation engineer', '\b(process|cleaning|equipment|packaging) validation', '\bqualification engineer', '\bC&Q\b', '\bcommissioning (and|&) qualification', '\bvalidation (specialist|lead)']
+    exclude: ['\bsoftware validation', '\bcomputer system']
+  - id: 10
+    name: Quality Systems / CAPA Engineer
+    tier: Strong (conditional)
+    include: ['\bquality systems? engineer', '\bCAPA\b', '\bdeviation', '\bquality compliance engineer', '\bquality systems specialist']
+  - id: 11
+    name: Manufacturing Project Engineer
+    tier: Strong
+    include: ['\bproject engineer', '\bcapital project', '\bmanufacturing engineering project']
+    exclude: ['\bconstruction\b', '\bsolar\b']
+  - id: 12
+    name: Manufacturing Data / Operations Analyst
+    tier: Strong (conditional)
+    include: ['\boperations analyst', '\bmanufacturing (data )?analyst', '\bproduction analyst', '\bmanufacturing (systems |intelligence )?analyst', '\boperations (data|business) analyst', '\bindustrial data']
+  - id: 13
+    name: Advanced Manufacturing / NPI Engineer
+    tier: Stretch
+    include: ['\badvanced manufacturing', '\bNPI\b', '\bnew product introduction', '\bprocess technology engineer', '\bindustrialization engineer']
+  - id: 14
+    name: Packaging Engineer
+    tier: Conditional
+    include: ['\bpackaging (process |development )?engineer', '\bpackaging engineering']
+  - id: 15
+    name: Product / DFM Engineer
+    tier: Stretch
+    include: ['\bproduct engineer', '\bdesign for manufactur', '\bDFM\b', '\bDFx\b']

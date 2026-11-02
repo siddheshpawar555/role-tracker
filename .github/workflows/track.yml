@@ -1,0 +1,64 @@
+name: Track new roles
+
+on:
+  schedule:
+    # Twice a day: ~7:40 am and ~5:40 pm US Central (cron is UTC; shifts 1 h with daylight saving)
+    - cron: "40 13,23 * * *"
+  workflow_dispatch:
+    inputs:
+      only:
+        description: "Optional: comma-separated company ids to check (blank = all)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: track
+  cancel-in-progress: false
+
+jobs:
+  track:
+    runs-on: ubuntu-latest
+    timeout-minutes: 100
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install
+        run: |
+          pip install -r requirements.txt
+          python -m playwright install --with-deps chromium
+
+      - name: Check careers sites
+        run: |
+          if [ -n "${{ github.event.inputs.only }}" ]; then
+            python -m tracker run --only "${{ github.event.inputs.only }}"
+          else
+            python -m tracker run
+          fi
+
+      - name: Save role history
+        run: |
+          git config user.name "job-tracker-bot"
+          git config user.email "job-tracker-bot@users.noreply.github.com"
+          git add data/
+          git diff --cached --quiet || git commit -m "Role check $(date -u +%Y-%m-%dT%H:%MZ)"
+          git pull --rebase --autostash && git push
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - id: deploy
+        uses: actions/deploy-pages@v4

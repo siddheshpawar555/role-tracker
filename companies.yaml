@@ -1,0 +1,1257 @@
+# Companies to track. Edit freely: add/remove entries, fix careers_url.
+# Optional per-company override, if auto-discovery picks the wrong site:
+#   ats: {type: workday, url: "https://TENANT.wd5.myworkdayjobs.com/SITE"}
+#   ats: {type: greenhouse, board: TOKEN}   (also lever / ashby / smartrecruiters)
+#   enabled: false        to pause a company
+- id: 1
+  name: Tesla
+  group: Automotive OEMs & vehicle manufacturers
+  lca_evidence: direct
+  careers_url: https://www.tesla.com/careers/search/
+  ats:
+    type: tesla
+- id: 2
+  name: Rivian
+  group: Automotive OEMs & vehicle manufacturers
+  lca_evidence: direct
+  careers_url: https://careers.rivian.com/
+- id: 3
+  name: Lucid Motors
+  group: Automotive OEMs & vehicle manufacturers
+  lca_evidence: direct
+  careers_url: https://lucidmotors.com/careers
+- id: 4
+  name: Ford Motor Company
+  group: Automotive OEMs & vehicle manufacturers
+  lca_evidence: direct
+  careers_url: https://www.careers.ford.com/
+- id: 5
+  name: Stellantis
+  group: Automotive OEMs & vehicle manufacturers
+  lca_evidence: unconfirmed
+  careers_url: https://careers.stellantis.com/
+- id: 6
+  name: Toyota Motor North America
+  group: Automotive OEMs & vehicle manufacturers
+  lca_evidence: unconfirmed
+  careers_url: https://careers.toyota.com/
+- id: 7
+  name: Honda
+  group: Automotive OEMs & vehicle manufacturers
+  lca_evidence: unconfirmed
+  careers_url: https://careers.honda.com/
+- id: 8
+  name: Nissan
+  group: Automotive OEMs & vehicle manufacturers
+  lca_evidence: unconfirmed
+  careers_url: https://www.nissanusa.com/about/careers.html
+- id: 9
+  name: Subaru of America
+  group: Automotive OEMs & vehicle manufacturers
+  lca_evidence: unconfirmed
+  careers_url: https://www.subaru.com/careers.html
+- id: 10
+  name: BMW Manufacturing
+  group: Automotive OEMs & vehicle manufacturers
+  lca_evidence: unconfirmed
+  careers_url: https://www.bmwgroup.jobs/us/en.html
+- id: 11
+  name: Mercedes-Benz U.S. International
+  group: Automotive OEMs & vehicle manufacturers
+  lca_evidence: unconfirmed
+  careers_url: https://www.mbusi.com/careers
+- id: 12
+  name: Hyundai Motor Manufacturing Alabama
+  group: Automotive OEMs & vehicle manufacturers
+  lca_evidence: unconfirmed
+  careers_url: https://www.hmmausa.com/careers/
+- id: 13
+  name: Kia Georgia
+  group: Automotive OEMs & vehicle manufacturers
+  lca_evidence: unconfirmed
+  careers_url: https://www.kiageorgia.com/careers
+- id: 14
+  name: Volvo Cars USA
+  group: Automotive OEMs & vehicle manufacturers
+  lca_evidence: unconfirmed
+  careers_url: https://www.volvocars.com/us/careers/
+- id: 15
+  name: Volvo Group North America
+  group: Automotive OEMs & vehicle manufacturers
+  lca_evidence: unconfirmed
+  careers_url: https://www.volvogroup.com/en/careers.html
+- id: 16
+  name: PACCAR
+  group: Automotive OEMs & vehicle manufacturers
+  lca_evidence: unconfirmed
+  careers_url: https://www.paccar.com/careers/
+- id: 17
+  name: International Motors (formerly Navistar)
+  group: Automotive OEMs & vehicle manufacturers
+  lca_evidence: unconfirmed
+  careers_url: https://www.internationaltrucks.com/careers
+- id: 18
+  name: Oshkosh Corporation
+  group: Automotive OEMs & vehicle manufacturers
+  lca_evidence: unconfirmed
+  careers_url: https://www.oshkoshcorp.com/en/careers
+- id: 19
+  name: Polaris
+  group: Automotive OEMs & vehicle manufacturers
+  lca_evidence: unconfirmed
+  careers_url: https://www.polaris.com/en-us/careers/
+- id: 20
+  name: Harley-Davidson
+  group: Automotive OEMs & vehicle manufacturers
+  lca_evidence: unconfirmed
+  careers_url: https://careers.harley-davidson.com/
+- id: 21
+  name: Magna International
+  group: Automotive Tier 1 / Tier 2 suppliers
+  lca_evidence: direct
+  careers_url: https://www.magna.com/careers
+- id: 22
+  name: Robert Bosch
+  group: Automotive Tier 1 / Tier 2 suppliers
+  lca_evidence: unconfirmed
+  careers_url: https://jobs.smartrecruiters.com/BoschGroup
+- id: 23
+  name: ZF Group
+  group: Automotive Tier 1 / Tier 2 suppliers
+  lca_evidence: unconfirmed
+  careers_url: https://jobs.zf.com/
+- id: 24
+  name: Aptiv
+  group: Automotive Tier 1 / Tier 2 suppliers
+  lca_evidence: unconfirmed
+  careers_url: https://www.aptiv.com/en/careers
+- id: 25
+  name: BorgWarner
+  group: Automotive Tier 1 / Tier 2 suppliers
+  lca_evidence: unconfirmed
+  careers_url: https://www.borgwarner.com/careers
+- id: 26
+  name: Dana Incorporated
+  group: Automotive Tier 1 / Tier 2 suppliers
+  lca_evidence: unconfirmed
+  careers_url: https://www.dana.com/careers/
+- id: 27
+  name: Lear Corporation
+  group: Automotive Tier 1 / Tier 2 suppliers
+  lca_evidence: unconfirmed
+  careers_url: https://www.lear.com/careers
+- id: 28
+  name: Autoliv
+  group: Automotive Tier 1 / Tier 2 suppliers
+  lca_evidence: unconfirmed
+  careers_url: https://www.autoliv.com/careers
+- id: 29
+  name: DENSO
+  group: Automotive Tier 1 / Tier 2 suppliers
+  lca_evidence: unconfirmed
+  careers_url: https://www.densocareers.com/
+- id: 30
+  name: Valeo
+  group: Automotive Tier 1 / Tier 2 suppliers
+  lca_evidence: unconfirmed
+  careers_url: https://www.valeo.com/en/careers/
+- id: 31
+  name: Continental
+  group: Automotive Tier 1 / Tier 2 suppliers
+  lca_evidence: unconfirmed
+  careers_url: https://jobs.continental.com/en/
+- id: 32
+  name: American Axle & Manufacturing
+  group: Automotive Tier 1 / Tier 2 suppliers
+  lca_evidence: unconfirmed
+  careers_url: https://www.aam.com/careers
+- id: 33
+  name: Tenneco
+  group: Automotive Tier 1 / Tier 2 suppliers
+  lca_evidence: unconfirmed
+  careers_url: https://www.tenneco.com/careers
+- id: 34
+  name: Adient
+  group: Automotive Tier 1 / Tier 2 suppliers
+  lca_evidence: unconfirmed
+  careers_url: https://www.adient.com/careers/
+- id: 35
+  name: Nexteer Automotive
+  group: Automotive Tier 1 / Tier 2 suppliers
+  lca_evidence: unconfirmed
+  careers_url: https://www.nexteer.com/careers/
+- id: 36
+  name: Brose
+  group: Automotive Tier 1 / Tier 2 suppliers
+  lca_evidence: unconfirmed
+  careers_url: https://www.brose.com/us-en/career/
+- id: 37
+  name: FORVIA
+  group: Automotive Tier 1 / Tier 2 suppliers
+  lca_evidence: unconfirmed
+  careers_url: https://www.forvia.com/en/careers
+- id: 38
+  name: Hanon Systems
+  group: Automotive Tier 1 / Tier 2 suppliers
+  lca_evidence: unconfirmed
+  careers_url: https://www.hanonsystems.com/careers
+- id: 39
+  name: Yanfeng
+  group: Automotive Tier 1 / Tier 2 suppliers
+  lca_evidence: unconfirmed
+  careers_url: https://www.yanfeng.com/en/careers
+- id: 40
+  name: TE Connectivity
+  group: Automotive Tier 1 / Tier 2 suppliers
+  lca_evidence: unconfirmed
+  careers_url: https://careers.te.com/
+- id: 41
+  name: Molex
+  group: Automotive Tier 1 / Tier 2 suppliers
+  lca_evidence: unconfirmed
+  careers_url: https://www.molex.com/en-us/careers
+- id: 42
+  name: Yazaki North America
+  group: Automotive Tier 1 / Tier 2 suppliers
+  lca_evidence: unconfirmed
+  careers_url: https://www.yazaki-na.com/careers
+- id: 43
+  name: Sumitomo Electric Wiring Systems
+  group: Automotive Tier 1 / Tier 2 suppliers
+  lca_evidence: unconfirmed
+  careers_url: https://www.sewsus.com/careers
+- id: 44
+  name: JTEKT
+  group: Automotive Tier 1 / Tier 2 suppliers
+  lca_evidence: unconfirmed
+  careers_url: https://www.jtekt-na.com/careers
+- id: 45
+  name: NSK Americas
+  group: Automotive Tier 1 / Tier 2 suppliers
+  lca_evidence: unconfirmed
+  careers_url: https://www.nskamericas.com/en/careers.html
+- id: 46
+  name: NTN Bearing Corporation
+  group: Automotive Tier 1 / Tier 2 suppliers
+  lca_evidence: unconfirmed
+  careers_url: https://www.ntnamericas.com/en/careers
+- id: 47
+  name: Schaeffler Group USA
+  group: Automotive Tier 1 / Tier 2 suppliers
+  lca_evidence: unconfirmed
+  careers_url: https://www.schaeffler.us/en/career/
+- id: 48
+  name: SKF USA
+  group: Automotive Tier 1 / Tier 2 suppliers
+  lca_evidence: unconfirmed
+  careers_url: https://www.skf.com/us/careers
+- id: 49
+  name: The Timken Company
+  group: Automotive Tier 1 / Tier 2 suppliers
+  lca_evidence: unconfirmed
+  careers_url: https://careers.timken.com/
+- id: 50
+  name: GKN Automotive
+  group: Automotive Tier 1 / Tier 2 suppliers
+  lca_evidence: unconfirmed
+  careers_url: https://www.gknautomotive.com/en/careers/
+- id: 51
+  name: Marelli
+  group: Automotive Tier 1 / Tier 2 suppliers
+  lca_evidence: unconfirmed
+  careers_url: https://www.marelli.com/careers/
+- id: 52
+  name: Linamar
+  group: Automotive Tier 1 / Tier 2 suppliers
+  lca_evidence: unconfirmed
+  careers_url: https://www.linamar.com/careers
+- id: 53
+  name: Gestamp
+  group: Automotive Tier 1 / Tier 2 suppliers
+  lca_evidence: unconfirmed
+  careers_url: https://www.gestamp.com/careers
+- id: 54
+  name: Martinrea International
+  group: Automotive Tier 1 / Tier 2 suppliers
+  lca_evidence: unconfirmed
+  careers_url: https://www.martinrea.com/careers/
+- id: 55
+  name: ABC Technologies
+  group: Automotive Tier 1 / Tier 2 suppliers
+  lca_evidence: unconfirmed
+  careers_url: https://abctechnologies.com/careers/
+- id: 56
+  name: Flex-N-Gate
+  group: Automotive Tier 1 / Tier 2 suppliers
+  lca_evidence: unconfirmed
+  careers_url: https://www.flex-n-gate.com/careers
+- id: 57
+  name: Webasto
+  group: Automotive Tier 1 / Tier 2 suppliers
+  lca_evidence: unconfirmed
+  careers_url: https://www.webasto-group.com/en/careers/
+- id: 58
+  name: Gentex Corporation
+  group: Automotive Tier 1 / Tier 2 suppliers
+  lca_evidence: unconfirmed
+  careers_url: https://www.gentex.com/careers/
+- id: 59
+  name: Visteon
+  group: Automotive Tier 1 / Tier 2 suppliers
+  lca_evidence: unconfirmed
+  careers_url: https://www.visteon.com/careers/
+- id: 60
+  name: Toyoda Gosei
+  group: Automotive Tier 1 / Tier 2 suppliers
+  lca_evidence: unconfirmed
+  careers_url: https://www.tg-na.com/careers
+- id: 61
+  name: NHK Spring
+  group: Automotive Tier 1 / Tier 2 suppliers
+  lca_evidence: unconfirmed
+  careers_url: https://www.nhkusa.com/careers
+- id: 62
+  name: Kautex
+  group: Automotive Tier 1 / Tier 2 suppliers
+  lca_evidence: unconfirmed
+  careers_url: https://www.kautex.com/en/careers
+- id: 63
+  name: IAC Group
+  group: Automotive Tier 1 / Tier 2 suppliers
+  lca_evidence: unconfirmed
+  careers_url: https://www.iacgroup.com/careers
+- id: 64
+  name: Cooper Standard
+  group: Automotive Tier 1 / Tier 2 suppliers
+  lca_evidence: unconfirmed
+  careers_url: https://www.cooperstandard.com/careers/
+- id: 65
+  name: TI Fluid Systems
+  group: Automotive Tier 1 / Tier 2 suppliers
+  lca_evidence: unconfirmed
+  careers_url: https://www.tifluidsystems.com/careers
+- id: 66
+  name: Motherson
+  group: Automotive Tier 1 / Tier 2 suppliers
+  lca_evidence: unconfirmed
+  careers_url: https://www.motherson.com/careers
+- id: 67
+  name: OPmobility
+  group: Automotive Tier 1 / Tier 2 suppliers
+  lca_evidence: unconfirmed
+  careers_url: https://www.opmobility.com/en/careers
+- id: 68
+  name: Piston Group
+  group: Automotive Tier 1 / Tier 2 suppliers
+  lca_evidence: unconfirmed
+  careers_url: https://www.pistongroup.com/careers
+- id: 69
+  name: Shiloh Industries
+  group: Automotive Tier 1 / Tier 2 suppliers
+  lca_evidence: unconfirmed
+  careers_url: https://www.shiloh.com/careers
+- id: 70
+  name: Brembo North America
+  group: Automotive Tier 1 / Tier 2 suppliers
+  lca_evidence: unconfirmed
+  careers_url: https://www.brembo.com/en/company/careers
+- id: 71
+  name: Medtronic
+  group: Medical device / diagnostics / healthcare manufacturing
+  lca_evidence: direct
+  careers_url: https://jobs.medtronic.com/
+- id: 72
+  name: Becton, Dickinson and Company (BD)
+  group: Medical device / diagnostics / healthcare manufacturing
+  lca_evidence: direct
+  careers_url: https://jobs.bd.com/
+- id: 73
+  name: Zimmer Biomet
+  group: Medical device / diagnostics / healthcare manufacturing
+  lca_evidence: direct
+  careers_url: https://careers.zimmerbiomet.com/
+- id: 74
+  name: Intuitive Surgical
+  group: Medical device / diagnostics / healthcare manufacturing
+  lca_evidence: direct
+  careers_url: https://careers.intuitive.com/
+- id: 75
+  name: Illumina
+  group: Medical device / diagnostics / healthcare manufacturing
+  lca_evidence: direct
+  careers_url: https://www.illumina.com/company/careers.html
+- id: 76
+  name: Stryker
+  group: Medical device / diagnostics / healthcare manufacturing
+  lca_evidence: sector
+  careers_url: https://careers.stryker.com/
+- id: 77
+  name: Abbott
+  group: Medical device / diagnostics / healthcare manufacturing
+  lca_evidence: sector
+  careers_url: https://www.jobs.abbott/
+- id: 78
+  name: Boston Scientific
+  group: Medical device / diagnostics / healthcare manufacturing
+  lca_evidence: sector
+  careers_url: https://jobs.bostonscientific.com/
+- id: 79
+  name: Edwards Lifesciences
+  group: Medical device / diagnostics / healthcare manufacturing
+  lca_evidence: sector
+  careers_url: https://www.edwards.com/careers
+- id: 80
+  name: GE HealthCare
+  group: Medical device / diagnostics / healthcare manufacturing
+  lca_evidence: sector
+  careers_url: https://careers.gehealthcare.com/
+- id: 81
+  name: Siemens Healthineers
+  group: Medical device / diagnostics / healthcare manufacturing
+  lca_evidence: sector
+  careers_url: https://jobs.siemens-healthineers.com/
+- id: 82
+  name: Johnson & Johnson MedTech
+  group: Medical device / diagnostics / healthcare manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://www.careers.jnj.com/
+- id: 83
+  name: Baxter International
+  group: Medical device / diagnostics / healthcare manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://jobs.baxter.com/
+- id: 84
+  name: Philips North America
+  group: Medical device / diagnostics / healthcare manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://www.careers.philips.com/
+- id: 85
+  name: ResMed
+  group: Medical device / diagnostics / healthcare manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://careers.resmed.com/
+- id: 86
+  name: Insulet
+  group: Medical device / diagnostics / healthcare manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://www.insulet.com/careers
+- id: 87
+  name: Dexcom
+  group: Medical device / diagnostics / healthcare manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://careers.dexcom.com/
+- id: 88
+  name: Hologic
+  group: Medical device / diagnostics / healthcare manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://careers.hologic.com/
+- id: 89
+  name: Align Technology
+  group: Medical device / diagnostics / healthcare manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://jobs.aligntech.com/
+- id: 90
+  name: Penumbra
+  group: Medical device / diagnostics / healthcare manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://www.penumbrainc.com/careers/
+- id: 91
+  name: Teleflex
+  group: Medical device / diagnostics / healthcare manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://careers.teleflex.com/
+- id: 92
+  name: Smith+Nephew
+  group: Medical device / diagnostics / healthcare manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://www.smith-nephew.com/en/careers
+- id: 93
+  name: Integra LifeSciences
+  group: Medical device / diagnostics / healthcare manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://www.integralife.com/careers
+- id: 94
+  name: ICU Medical
+  group: Medical device / diagnostics / healthcare manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://www.icumed.com/careers/
+- id: 95
+  name: Masimo
+  group: Medical device / diagnostics / healthcare manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://www.masimo.com/company/careers/
+- id: 96
+  name: Integer Holdings
+  group: Medical device / diagnostics / healthcare manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://careers.integer.net/
+- id: 97
+  name: West Pharmaceutical Services
+  group: Medical device / diagnostics / healthcare manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://www.westpharma.com/careers
+- id: 98
+  name: Merit Medical Systems
+  group: Medical device / diagnostics / healthcare manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://www.merit.com/careers/
+- id: 99
+  name: Haemonetics
+  group: Medical device / diagnostics / healthcare manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://www.haemonetics.com/careers
+- id: 100
+  name: Envista Holdings
+  group: Medical device / diagnostics / healthcare manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://www.envistaco.com/careers
+- id: 101
+  name: Bausch + Lomb
+  group: Medical device / diagnostics / healthcare manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://www.bausch.com/careers/
+- id: 102
+  name: Agilent Technologies
+  group: Medical device / diagnostics / healthcare manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://careers.agilent.com/
+- id: 103
+  name: Revvity
+  group: Medical device / diagnostics / healthcare manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://www.revvity.com/careers
+- id: 104
+  name: Bio-Rad Laboratories
+  group: Medical device / diagnostics / healthcare manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://www.bio-rad.com/en-us/corporate/careers
+- id: 105
+  name: Beckman Coulter
+  group: Medical device / diagnostics / healthcare manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://www.beckmancoulter.com/careers
+- id: 106
+  name: MicroVention
+  group: Medical device / diagnostics / healthcare manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://www.microvention.com/careers
+- id: 107
+  name: Cardinal Health
+  group: Medical device / diagnostics / healthcare manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://jobs.cardinalhealth.com/
+- id: 108
+  name: CooperSurgical
+  group: Medical device / diagnostics / healthcare manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://www.coopersurgical.com/careers/
+- id: 109
+  name: Globus Medical
+  group: Medical device / diagnostics / healthcare manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://www.globusmedical.com/careers/
+- id: 110
+  name: Solventum
+  group: Medical device / diagnostics / healthcare manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://www.solventum.com/en-us/home/our-company/careers/
+- id: 111
+  name: Eli Lilly and Company
+  group: Pharmaceutical / biotech / contract pharma manufacturing
+  lca_evidence: direct
+  careers_url: https://careers.lilly.com/
+- id: 112
+  name: Pfizer
+  group: Pharmaceutical / biotech / contract pharma manufacturing
+  lca_evidence: direct
+  careers_url: https://www.pfizer.com/about/careers
+- id: 113
+  name: AbbVie
+  group: Pharmaceutical / biotech / contract pharma manufacturing
+  lca_evidence: direct
+  careers_url: https://careers.abbvie.com/
+- id: 114
+  name: Bristol Myers Squibb
+  group: Pharmaceutical / biotech / contract pharma manufacturing
+  lca_evidence: direct
+  careers_url: https://careers.bms.com/
+- id: 115
+  name: Amgen
+  group: Pharmaceutical / biotech / contract pharma manufacturing
+  lca_evidence: direct
+  careers_url: https://careers.amgen.com/
+- id: 116
+  name: AstraZeneca
+  group: Pharmaceutical / biotech / contract pharma manufacturing
+  lca_evidence: direct
+  careers_url: https://careers.astrazeneca.com/
+- id: 117
+  name: Thermo Fisher Scientific (Patheon)
+  group: Pharmaceutical / biotech / contract pharma manufacturing
+  lca_evidence: direct
+  careers_url: https://jobs.thermofisher.com/
+- id: 118
+  name: GSK
+  group: Pharmaceutical / biotech / contract pharma manufacturing
+  lca_evidence: sector
+  careers_url: https://jobs.gsk.com/
+- id: 119
+  name: Sanofi
+  group: Pharmaceutical / biotech / contract pharma manufacturing
+  lca_evidence: sector
+  careers_url: https://jobs.sanofi.com/
+- id: 120
+  name: Takeda Pharmaceuticals
+  group: Pharmaceutical / biotech / contract pharma manufacturing
+  lca_evidence: sector
+  careers_url: https://jobs.takeda.com/
+- id: 121
+  name: Boehringer Ingelheim
+  group: Pharmaceutical / biotech / contract pharma manufacturing
+  lca_evidence: sector
+  careers_url: https://www.boehringer-ingelheim.com/us/careers
+- id: 122
+  name: Novo Nordisk
+  group: Pharmaceutical / biotech / contract pharma manufacturing
+  lca_evidence: sector
+  careers_url: https://www.novonordisk-us.com/careers.html
+- id: 123
+  name: Novartis
+  group: Pharmaceutical / biotech / contract pharma manufacturing
+  lca_evidence: sector
+  careers_url: https://www.novartis.com/careers
+- id: 124
+  name: Bayer
+  group: Pharmaceutical / biotech / contract pharma manufacturing
+  lca_evidence: sector
+  careers_url: https://www.bayer.com/en/careers
+- id: 125
+  name: Gilead Sciences
+  group: Pharmaceutical / biotech / contract pharma manufacturing
+  lca_evidence: sector
+  careers_url: https://www.gilead.com/careers
+- id: 126
+  name: Biogen
+  group: Pharmaceutical / biotech / contract pharma manufacturing
+  lca_evidence: sector
+  careers_url: https://www.biogen.com/careers.html
+- id: 127
+  name: Regeneron Pharmaceuticals
+  group: Pharmaceutical / biotech / contract pharma manufacturing
+  lca_evidence: sector
+  careers_url: https://careers.regeneron.com/
+- id: 128
+  name: Vertex Pharmaceuticals
+  group: Pharmaceutical / biotech / contract pharma manufacturing
+  lca_evidence: sector
+  careers_url: https://careers.vrtx.com/
+- id: 129
+  name: Moderna
+  group: Pharmaceutical / biotech / contract pharma manufacturing
+  lca_evidence: sector
+  careers_url: https://www.modernatx.com/careers
+- id: 130
+  name: Merck & Co.
+  group: Pharmaceutical / biotech / contract pharma manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://jobs.merck.com/
+- id: 131
+  name: Genentech
+  group: Pharmaceutical / biotech / contract pharma manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://careers.gene.com/
+- id: 132
+  name: Roche Diagnostics
+  group: Pharmaceutical / biotech / contract pharma manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://careers.roche.com/
+- id: 133
+  name: Catalent
+  group: Pharmaceutical / biotech / contract pharma manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://careers.catalent.com/
+- id: 134
+  name: Lonza
+  group: Pharmaceutical / biotech / contract pharma manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://www.lonza.com/careers
+- id: 135
+  name: FUJIFILM Diosynth Biotechnologies
+  group: Pharmaceutical / biotech / contract pharma manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://fujifilmdiosynth.com/careers/
+- id: 136
+  name: Charles River Laboratories
+  group: Pharmaceutical / biotech / contract pharma manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://jobs.criver.com/
+- id: 137
+  name: Resilience
+  group: Pharmaceutical / biotech / contract pharma manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://resilience.com/careers
+- id: 138
+  name: PCI Pharma Services
+  group: Pharmaceutical / biotech / contract pharma manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://pci.com/careers/
+- id: 139
+  name: Cambrex
+  group: Pharmaceutical / biotech / contract pharma manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://www.cambrex.com/careers/
+- id: 140
+  name: Siegfried
+  group: Pharmaceutical / biotech / contract pharma manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://www.siegfried.ch/careers/
+- id: 141
+  name: Hikma Pharmaceuticals
+  group: Pharmaceutical / biotech / contract pharma manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://www.hikma.com/careers/
+- id: 142
+  name: Lupin Pharmaceuticals
+  group: Pharmaceutical / biotech / contract pharma manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://www.lupin.com/US/careers/
+- id: 143
+  name: Sun Pharmaceutical Industries
+  group: Pharmaceutical / biotech / contract pharma manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://sunpharma.com/usa/careers/
+- id: 144
+  name: Dr. Reddy's Laboratories
+  group: Pharmaceutical / biotech / contract pharma manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://www.drreddys.com/careers
+- id: 145
+  name: Aurobindo Pharma
+  group: Pharmaceutical / biotech / contract pharma manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://www.aurobindousa.com/careers/
+- id: 146
+  name: Intel
+  group: Semiconductor / electronics / contract manufacturing
+  lca_evidence: direct
+  careers_url: https://jobs.intel.com/
+- id: 147
+  name: Applied Materials
+  group: Semiconductor / electronics / contract manufacturing
+  lca_evidence: direct
+  careers_url: https://careers.appliedmaterials.com/
+- id: 148
+  name: Lam Research
+  group: Semiconductor / electronics / contract manufacturing
+  lca_evidence: direct
+  careers_url: https://careers.lamresearch.com/
+- id: 149
+  name: Micron Technology
+  group: Semiconductor / electronics / contract manufacturing
+  lca_evidence: direct
+  careers_url: https://careers.micron.com/
+- id: 150
+  name: Texas Instruments
+  group: Semiconductor / electronics / contract manufacturing
+  lca_evidence: direct
+  careers_url: https://careers.ti.com/
+- id: 151
+  name: Analog Devices
+  group: Semiconductor / electronics / contract manufacturing
+  lca_evidence: direct
+  careers_url: https://www.analog.com/en/about-adi/careers.html
+- id: 152
+  name: TSMC Arizona
+  group: Semiconductor / electronics / contract manufacturing
+  lca_evidence: direct
+  careers_url: https://careers.tsmc.com/
+- id: 153
+  name: Samsung Austin Semiconductor
+  group: Semiconductor / electronics / contract manufacturing
+  lca_evidence: direct
+  careers_url: https://www.samsung.com/us/sas/careers/
+- id: 154
+  name: Foxconn Industrial Internet (FII USA)
+  group: Semiconductor / electronics / contract manufacturing
+  lca_evidence: direct
+  careers_url: https://www.fii-usa.com/careers
+- id: 155
+  name: KLA Corporation
+  group: Semiconductor / electronics / contract manufacturing
+  lca_evidence: sector
+  careers_url: https://www.kla.com/careers
+- id: 156
+  name: ASML
+  group: Semiconductor / electronics / contract manufacturing
+  lca_evidence: sector
+  careers_url: https://www.asml.com/en/careers
+- id: 157
+  name: NXP Semiconductors
+  group: Semiconductor / electronics / contract manufacturing
+  lca_evidence: sector
+  careers_url: https://www.nxp.com/company/about-nxp/careers:CAREERS
+- id: 158
+  name: onsemi
+  group: Semiconductor / electronics / contract manufacturing
+  lca_evidence: sector
+  careers_url: https://www.onsemi.com/careers
+- id: 159
+  name: GlobalFoundries
+  group: Semiconductor / electronics / contract manufacturing
+  lca_evidence: sector
+  careers_url: https://gf.com/careers/
+- id: 160
+  name: Advanced Micro Devices (AMD)
+  group: Semiconductor / electronics / contract manufacturing
+  lca_evidence: sector
+  careers_url: https://careers.amd.com/
+- id: 161
+  name: Western Digital
+  group: Semiconductor / electronics / contract manufacturing
+  lca_evidence: sector
+  careers_url: https://jobs.westerndigital.com/
+- id: 162
+  name: Seagate Technology
+  group: Semiconductor / electronics / contract manufacturing
+  lca_evidence: sector
+  careers_url: https://www.seagate.com/careers/
+- id: 163
+  name: Jabil
+  group: Semiconductor / electronics / contract manufacturing
+  lca_evidence: sector
+  careers_url: https://careers.jabil.com/
+- id: 164
+  name: Flex
+  group: Semiconductor / electronics / contract manufacturing
+  lca_evidence: sector
+  careers_url: https://flextronics.wd1.myworkdayjobs.com/Careers
+- id: 165
+  name: Sanmina
+  group: Semiconductor / electronics / contract manufacturing
+  lca_evidence: sector
+  careers_url: https://www.sanmina.com/careers/
+- id: 166
+  name: Celestica
+  group: Semiconductor / electronics / contract manufacturing
+  lca_evidence: sector
+  careers_url: https://www.celestica.com/careers
+- id: 167
+  name: Skyworks Solutions
+  group: Semiconductor / electronics / contract manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://www.skyworksinc.com/careers
+- id: 168
+  name: Qorvo
+  group: Semiconductor / electronics / contract manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://careers.qorvo.com/
+- id: 169
+  name: Broadcom
+  group: Semiconductor / electronics / contract manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://www.broadcom.com/company/careers
+- id: 170
+  name: Qualcomm
+  group: Semiconductor / electronics / contract manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://careers.qualcomm.com/
+- id: 171
+  name: NVIDIA
+  group: Semiconductor / electronics / contract manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite
+- id: 172
+  name: SanDisk
+  group: Semiconductor / electronics / contract manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://www.sandisk.com/company/careers
+- id: 173
+  name: Benchmark Electronics
+  group: Semiconductor / electronics / contract manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://www.bench.com/careers
+- id: 174
+  name: Plexus
+  group: Semiconductor / electronics / contract manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://www.plexus.com/en-us/careers
+- id: 175
+  name: Kimball Electronics
+  group: Semiconductor / electronics / contract manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://www.kimballelectronics.com/careers
+- id: 176
+  name: Fabrinet
+  group: Semiconductor / electronics / contract manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://www.fabrinet.com/careers
+- id: 177
+  name: Methode Electronics
+  group: Semiconductor / electronics / contract manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://www.methode.com/careers
+- id: 178
+  name: Belden
+  group: Semiconductor / electronics / contract manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://www.belden.com/careers
+- id: 179
+  name: Amphenol
+  group: Semiconductor / electronics / contract manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://www.amphenol.com/careers
+- id: 180
+  name: Entegris
+  group: Semiconductor / electronics / contract manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://www.entegris.com/en/home/about-us/careers.html
+- id: 181
+  name: MKS Instruments
+  group: Semiconductor / electronics / contract manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://www.mks.com/careers
+- id: 182
+  name: Onto Innovation
+  group: Semiconductor / electronics / contract manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://ontoinnovation.com/careers
+- id: 183
+  name: Coherent Corp.
+  group: Semiconductor / electronics / contract manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://www.coherent.com/company/careers
+- id: 184
+  name: Microchip Technology
+  group: Semiconductor / electronics / contract manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://careers.microchip.com/
+- id: 185
+  name: Vishay Intertechnology
+  group: Semiconductor / electronics / contract manufacturing
+  lca_evidence: unconfirmed
+  careers_url: https://www.vishay.com/en/company/careers/
+- id: 186
+  name: Caterpillar
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: direct
+  careers_url: https://careers.caterpillar.com/
+- id: 187
+  name: Cummins
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: direct
+  careers_url: https://careers.cummins.com/
+- id: 188
+  name: Eaton
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: sector
+  careers_url: https://www.eaton.com/us/en-us/company/careers.html
+- id: 189
+  name: Honeywell
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: sector
+  careers_url: https://careers.honeywell.com/
+- id: 190
+  name: Parker Hannifin
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: sector
+  careers_url: https://www.parker.com/us/en/careers.html
+- id: 191
+  name: Rockwell Automation
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: sector
+  careers_url: https://www.rockwellautomation.com/en-us/company/careers.html
+- id: 192
+  name: Schneider Electric
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: sector
+  careers_url: https://www.se.com/us/en/about-us/careers/
+- id: 193
+  name: ABB
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: sector
+  careers_url: https://careers.abb/global/en
+- id: 194
+  name: PPG Industries
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: sector
+  careers_url: https://careers.ppg.com/
+- id: 195
+  name: Dow
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: sector
+  careers_url: https://corporate.dow.com/en-us/careers.html
+- id: 196
+  name: BASF Corporation
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: sector
+  careers_url: https://www.basf.com/us/en/careers
+- id: 197
+  name: 3M
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: unconfirmed
+  careers_url: https://www.3m.com/3M/en_US/careers-us/
+- id: 198
+  name: Emerson
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: unconfirmed
+  careers_url: https://www.emerson.com/en-us/careers
+- id: 199
+  name: Siemens USA
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: unconfirmed
+  careers_url: https://jobs.siemens.com/
+- id: 200
+  name: GE Aerospace
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: unconfirmed
+  careers_url: https://careers.geaerospace.com/
+- id: 201
+  name: GE Vernova
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: unconfirmed
+  careers_url: https://careers.gevernova.com/
+- id: 202
+  name: RTX
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: unconfirmed
+  careers_url: https://careers.rtx.com/
+- id: 203
+  name: Collins Aerospace
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: unconfirmed
+  careers_url: https://careers.rtx.com/global/en/collins-aerospace
+- id: 204
+  name: Honeywell Aerospace
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: unconfirmed
+  careers_url: https://careers.honeywell.com/
+- id: 205
+  name: Lockheed Martin
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: unconfirmed
+  careers_url: https://www.lockheedmartinjobs.com/
+- id: 206
+  name: Northrop Grumman
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: unconfirmed
+  careers_url: https://www.northropgrumman.com/careers
+- id: 207
+  name: The Boeing Company
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: unconfirmed
+  careers_url: https://jobs.boeing.com/
+- id: 208
+  name: L3Harris Technologies
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: unconfirmed
+  careers_url: https://careers.l3harris.com/
+- id: 209
+  name: Textron
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: unconfirmed
+  careers_url: https://www.textron.com/careers
+- id: 210
+  name: General Dynamics
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: unconfirmed
+  careers_url: https://www.gd.com/careers
+- id: 211
+  name: John Deere
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: unconfirmed
+  careers_url: https://www.deere.com/en/our-company/careers/
+- id: 212
+  name: CNH Industrial
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: unconfirmed
+  careers_url: https://www.cnh.com/en-US/careers
+- id: 213
+  name: AGCO
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: unconfirmed
+  careers_url: https://www.agcocorp.com/careers
+- id: 214
+  name: Terex
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: unconfirmed
+  careers_url: https://www.terex.com/careers
+- id: 215
+  name: Manitowoc
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: unconfirmed
+  careers_url: https://www.manitowoc.com/careers
+- id: 216
+  name: Komatsu
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: unconfirmed
+  careers_url: https://www.komatsu.com/en/careers/
+- id: 217
+  name: Hitachi America
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: unconfirmed
+  careers_url: https://www.hitachi.us/careers
+- id: 218
+  name: Mitsubishi Electric Automation
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: unconfirmed
+  careers_url: https://us.mitsubishielectric.com/fa/en/about-us/careers
+- id: 219
+  name: Daikin Applied
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: unconfirmed
+  careers_url: https://www.daikinapplied.com/careers
+- id: 220
+  name: Trane Technologies
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: unconfirmed
+  careers_url: https://careers.tranetechnologies.com/
+- id: 221
+  name: Carrier Global
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: unconfirmed
+  careers_url: https://careers.carrier.com/
+- id: 222
+  name: Johnson Controls
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: unconfirmed
+  careers_url: https://jobs.johnsoncontrols.com/
+- id: 223
+  name: Ingersoll Rand
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: unconfirmed
+  careers_url: https://careers.irco.com/
+- id: 224
+  name: Flowserve
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: unconfirmed
+  careers_url: https://www.flowserve.com/en/careers/
+- id: 225
+  name: ITT Inc.
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: unconfirmed
+  careers_url: https://www.itt.com/careers
+- id: 226
+  name: Xylem
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: unconfirmed
+  careers_url: https://www.xylem.com/en-us/careers/
+- id: 227
+  name: Dover Corporation
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: unconfirmed
+  careers_url: https://www.dovercorporation.com/careers
+- id: 228
+  name: Graco
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: unconfirmed
+  careers_url: https://www.graco.com/us/en/about-graco/careers.html
+- id: 229
+  name: Illinois Tool Works (ITW)
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: unconfirmed
+  careers_url: https://www.itw.com/careers/
+- id: 230
+  name: Stanley Black & Decker
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: unconfirmed
+  careers_url: https://www.stanleyblackanddecker.com/careers
+- id: 231
+  name: Snap-on
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: unconfirmed
+  careers_url: https://www.snapon.com/en/careers
+- id: 232
+  name: Generac
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: unconfirmed
+  careers_url: https://www.generac.com/about/careers/
+- id: 233
+  name: Hubbell
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: unconfirmed
+  careers_url: https://www.hubbell.com/hubbell/en/careers
+- id: 234
+  name: nVent
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: unconfirmed
+  careers_url: https://www.nvent.com/en-us/careers
+- id: 235
+  name: Regal Rexnord
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: unconfirmed
+  careers_url: https://www.regalrexnord.com/careers
+- id: 236
+  name: Wabtec
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: unconfirmed
+  careers_url: https://www.wabteccorp.com/careers
+- id: 237
+  name: BWX Technologies
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: unconfirmed
+  careers_url: https://www.bwxt.com/careers
+- id: 238
+  name: Chart Industries
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: unconfirmed
+  careers_url: https://www.chartindustries.com/careers
+- id: 239
+  name: The Sherwin-Williams Company
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: unconfirmed
+  careers_url: https://careers.sherwin-williams.com/
+- id: 240
+  name: DuPont
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: unconfirmed
+  careers_url: https://careers.dupont.com/
+- id: 241
+  name: Celanese
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: unconfirmed
+  careers_url: https://www.celanese.com/careers
+- id: 242
+  name: Eastman Chemical
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: unconfirmed
+  careers_url: https://www.eastman.com/en/careers
+- id: 243
+  name: LyondellBasell
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: unconfirmed
+  careers_url: https://www.lyondellbasell.com/en/careers/
+- id: 244
+  name: Westlake Corporation
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: unconfirmed
+  careers_url: https://www.westlake.com/careers
+- id: 245
+  name: Avery Dennison
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: unconfirmed
+  careers_url: https://www.averydennison.com/en/home/careers.html
+- id: 246
+  name: Corning Incorporated
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: unconfirmed
+  careers_url: https://www.corning.com/worldwide/en/careers.html
+- id: 247
+  name: Owens Corning
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: unconfirmed
+  careers_url: https://www.owenscorning.com/en-us/corporate/careers
+- id: 248
+  name: Saint-Gobain North America
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: unconfirmed
+  careers_url: https://www.saint-gobain-northamerica.com/careers
+- id: 249
+  name: Crown Holdings
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: unconfirmed
+  careers_url: https://www.crowncork.com/careers
+- id: 250
+  name: Amcor
+  group: Industrial equipment / automation / materials / packaging
+  lca_evidence: unconfirmed
+  careers_url: https://www.amcor.com/careers

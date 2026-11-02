@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Role Tracker</title>
+<style>
+:root{
+  --bg:#f6f5f1;--panel:#ffffff;--ink:#1d1d1b;--muted:#6b6a64;--line:#e4e2db;
+  --accent:#1f5f4a;--accent-soft:#e3efe9;--new:#b4441f;--new-soft:#fbe9e1;--closed:#8a8780;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#141413;--panel:#1d1d1b;--ink:#ecebe6;--muted:#9b998f;--line:#2f2e2a;
+  --accent:#7cc4a6;--accent-soft:#1f3029;--new:#f08a62;--new-soft:#3a241b;--closed:#77756d;}}
+:root[data-theme="dark"]{--bg:#141413;--panel:#1d1d1b;--ink:#ecebe6;--muted:#9b998f;--line:#2f2e2a;
+  --accent:#7cc4a6;--accent-soft:#1f3029;--new:#f08a62;--new-soft:#3a241b;--closed:#77756d;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif}
+header{padding:28px 16px 8px;max-width:1240px;margin:0 auto}
+h1{font-size:22px;margin:0 0 4px;letter-spacing:-.01em}
+.sub{color:var(--muted);font-size:13px}
+main{max-width:1240px;margin:0 auto;padding:0 16px 48px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:16px 0}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.stat b{display:block;font-size:24px;font-variant-numeric:tabular-nums}
+.stat span{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+.stat.hot b{color:var(--new)}
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);margin-top:8px;overflow-x:auto}
+.tabs button{background:none;border:0;border-bottom:2px solid transparent;padding:10px 12px;font:inherit;color:var(--muted);cursor:pointer;white-space:nowrap}
+.tabs button.on{color:var(--ink);border-color:var(--accent);font-weight:600}
+.filters{display:flex;flex-wrap:wrap;gap:8px;padding:12px 0}
+.filters input,.filters select{font:inherit;font-size:14px;padding:7px 10px;border:1px solid var(--line);border-radius:8px;background:var(--panel);color:var(--ink);min-width:0}
+.filters input{flex:1 1 220px}
+.filters select{flex:0 1 200px}
+.count{color:var(--muted);font-size:13px;margin:4px 0 8px}
+table{width:100%;border-collapse:collapse;background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);font-weight:600;background:var(--bg);cursor:pointer;user-select:none}
+tr:last-child td{border-bottom:0}
+td a{color:var(--ink);text-decoration:none;font-weight:550}
+td a:hover{color:var(--accent);text-decoration:underline}
+.pill{display:inline-block;font-size:11px;padding:1px 7px;border-radius:999px;margin-left:6px;vertical-align:1px;font-weight:600}
+.pill.new{background:var(--new-soft);color:var(--new)}
+.pill.closed{background:var(--line);color:var(--closed)}
+.pill.ev{background:var(--accent-soft);color:var(--accent)}
+.muted{color:var(--muted);font-size:13px}
+.date{font-family:var(--mono);font-size:12.5px;white-space:nowrap}
+tr.closed td a{color:var(--closed);text-decoration:line-through}
+.empty{padding:40px;text-align:center;color:var(--muted);background:var(--panel);border:1px solid var(--line);border-radius:10px}
+.ok{color:var(--accent)}.bad{color:var(--new)}
+@media (max-width:760px){
+  .filters select{flex:1 1 45%}
+  thead{display:none}
+  table,tbody,tr,td{display:block;width:100%}
+  tr{border-bottom:1px solid var(--line);padding:8px 0}
+  td{border:0;padding:3px 12px}
+  td[data-l]::before{content:attr(data-l) ": ";color:var(--muted);font-size:12px}
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>Role Tracker</h1>
+  <div class="sub" id="sub"></div>
+</header>
+<main>
+  <div class="stats" id="stats"></div>
+  <div class="tabs" id="tabs">
+    <button data-v="new" class="on">New roles</button>
+    <button data-v="open">All open roles</button>
+    <button data-v="closed">Recently closed</button>
+    <button data-v="companies">Companies</button>
+  </div>
+  <div class="filters" id="filters">
+    <input id="q" type="search" placeholder="Search title, company, location">
+    <select id="since">
+      <option value="run">Since last check</option>
+      <option value="1">Last 24 hours</option>
+      <option value="3" selected>Last 3 days</option>
+      <option value="7">Last 7 days</option>
+      <option value="30">Last 30 days</option>
+    </select>
+    <select id="family"><option value="">All role families</option></select>
+    <select id="group"><option value="">All industries</option></select>
+    <select id="ev">
+      <option value="">Any LCA evidence</option>
+      <option value="direct">LCA: direct</option>
+      <option value="sector">LCA: sector-level</option>
+      <option value="unconfirmed">LCA: not confirmed</option>
+    </select>
+  </div>
+  <div class="count" id="count"></div>
+  <div id="out"></div>
+</main>
+<script>
+const DATA = /*__DATA__*/null;
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const fmt = iso => iso ? new Date(iso).toLocaleString(undefined,{month:"short",day:"numeric",hour:"numeric",minute:"2-digit"}) : "";
+const day = iso => iso ? new Date(iso + (iso.length===10?"T12:00:00":"")).toLocaleDateString(undefined,{month:"short",day:"numeric"}) : "";
+let view = "new", sortKey = "first_seen", sortDir = -1;
+try { const v = localStorage.getItem("rt-view"); if (v) view = v; } catch(e) {}
+
+const runs = DATA.runs || [];
+const lastRun = runs.length ? runs[runs.length-1].ts : null;
+const jobs = DATA.jobs || [];
+const comps = DATA.companies || {};
+
+function init(){
+  const fams = [...new Map(jobs.map(j=>[j.family_id,j.family])).entries()].sort((a,b)=>a[0]-b[0]);
+  $("#family").innerHTML += fams.map(([id,n])=>`<option value="${id}">${id}. ${esc(n)}</option>`).join("");
+  const groups = [...new Set(jobs.map(j=>j.group))].sort();
+  $("#group").innerHTML += groups.map(g=>`<option>${esc(g)}</option>`).join("");
+  const okC = Object.values(comps).filter(c=>c.last_ok && !c.last_error).length;
+  $("#sub").textContent = lastRun ? `Last checked ${fmt(lastRun)} · ${okC} of ${Object.keys(comps).length} companies read successfully` : "No checks yet";
+  const open = jobs.filter(j=>j.status==="open");
+  const newRun = open.filter(j=>!j.baseline && j.first_seen===lastRun).length;
+  const new7 = open.filter(j=>!j.baseline && Date.now()-new Date(j.first_seen) < 7*864e5).length;
+  $("#stats").innerHTML = [
+    ["New since last check", newRun, "hot"], ["New in 7 days", new7, ""],
+    ["Open matching roles", open.length, ""], ["Companies with openings", new Set(open.map(j=>j.company_id)).size, ""],
+  ].map(([l,n,c])=>`<div class="stat ${c}"><b>${n}</b><span>${l}</span></div>`).join("");
+  document.querySelectorAll("#tabs button").forEach(b=>{
+    b.classList.toggle("on", b.dataset.v===view);
+    b.onclick=()=>{view=b.dataset.v; try{localStorage.setItem("rt-view",view)}catch(e){}
+      document.querySelectorAll("#tabs button").forEach(x=>x.classList.toggle("on",x===b)); render();};
+  });
+  ["#q","#since","#family","#group","#ev"].forEach(s=>$(s).addEventListener("input",render));
+  render();
+}
+
+function filtered(){
+  const q = $("#q").value.trim().toLowerCase(), since=$("#since").value, fam=$("#family").value,
+        grp=$("#group").value, ev=$("#ev").value;
+  let list = jobs.filter(j=>{
+    if (view==="new" && (j.status!=="open" || j.baseline)) return false;
+    if (view==="open" && j.status!=="open") return false;
+    if (view==="closed" && j.status!=="closed") return false;
+    if (fam && String(j.family_id)!==fam) return false;
+    if (grp && j.group!==grp) return false;
+    if (ev && j.lca_evidence!==ev) return false;
+    if (q && !(`${j.title} ${j.company} ${j.location}`.toLowerCase().includes(q))) return false;
+    if (view==="new"){
+      if (since==="run") return j.first_seen===lastRun;
+      return Date.now()-new Date(j.first_seen) < (+since)*864e5;
+    }
+    return true;
+  });
+  const k = view==="closed" && sortKey==="first_seen" ? "closed" : sortKey;
+  list.sort((a,b)=> (String(a[k]??"")<String(b[k]??"")?-1:String(a[k]??"")>String(b[k]??"")?1:0)*sortDir);
+  return list;
+}
+
+function render(){
+  $("#filters").style.display = view==="companies" ? "none" : "flex";
+  $("#since").style.display = view==="new" ? "" : "none";
+  if (view==="companies") return renderCompanies();
+  const list = filtered();
+  $("#count").textContent = `${list.length} role${list.length===1?"":"s"}`;
+  if (!list.length){
+    const msg = view==="new" && runs.length<2 ? "The first check recorded a baseline. New roles will appear here from the next check onward." : "No roles match these filters.";
+    $("#out").innerHTML = `<div class="empty">${msg}</div>`; return;
+  }
+  const cols = [["title","Role"],["company","Company"],["location","Location"],["family_id","Role family"],["first_seen","First seen"],["posted","Posted"]];
+  $("#out").innerHTML = `<table><thead><tr>${cols.map(([k,l])=>`<th data-k="${k}">${l}${sortKey===k?(sortDir<0?" ↓":" ↑"):""}</th>`).join("")}</tr></thead><tbody>${
+    list.slice(0,1500).map(j=>{
+      const isNew = !j.baseline && j.first_seen===lastRun && j.status==="open";
+      return `<tr class="${j.status}">
+      <td><a href="${esc(j.url)}" target="_blank" rel="noopener">${esc(j.title)}</a>${isNew?'<span class="pill new">New</span>':""}${j.status==="closed"?'<span class="pill closed">Closed '+day(j.closed)+'</span>':""}</td>
+      <td data-l="Company">${esc(j.company)}${j.lca_evidence==="direct"?'<span class="pill ev" title="Direct FY2025 LCA evidence">LCA</span>':""}</td>
+      <td data-l="Location" class="muted">${esc((j.location||"").slice(0,90))}</td>
+      <td data-l="Family" class="muted">${esc(j.family)}</td>
+      <td data-l="First seen" class="date">${fmt(j.first_seen)}${j.baseline?' <span class="muted" title="Already listed when tracking started">(baseline)</span>':""}</td>
+      <td data-l="Posted" class="date">${day(j.posted)}</td></tr>`}).join("")}</tbody></table>`;
+  document.querySelectorAll("th[data-k]").forEach(th=>th.onclick=()=>{
+    const k=th.dataset.k; if (sortKey===k) sortDir*=-1; else {sortKey=k; sortDir = k==="first_seen"||k==="posted"?-1:1;} render();});
+}
+
+function renderCompanies(){
+  const openBy = {}; jobs.forEach(j=>{ if(j.status==="open") openBy[j.company_id]=(openBy[j.company_id]||0)+1; });
+  const rows = Object.entries(comps).sort((a,b)=>+a[0]-+b[0]);
+  $("#count").textContent = `${rows.length} companies`;
+  $("#out").innerHTML = `<table><thead><tr><th>#</th><th>Company</th><th>Status</th><th>Platform</th><th>Open matches</th><th>Last read</th></tr></thead><tbody>${
+    rows.map(([id,c])=>`<tr><td class="muted">${id}</td><td>${esc(c.name)}</td>
+      <td data-l="Status">${c.last_error?`<span class="bad">Failing</span> <span class="muted">${esc(c.last_error)}</span>`:(c.partial?'<span class="ok">OK</span> <span class="muted">(page links only)</span>':'<span class="ok">OK</span>')}</td>
+      <td data-l="Platform" class="muted">${esc(c.ats||"")}</td><td data-l="Open">${openBy[id]||0}</td>
+      <td data-l="Last read" class="date">${fmt(c.last_ok)}</td></tr>`).join("")}</tbody></table>`;
+}
+init();
+</script>
+</body>
+</html>
