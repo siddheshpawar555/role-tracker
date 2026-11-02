@@ -24,9 +24,6 @@ jobs:
   track:
     runs-on: ubuntu-latest
     timeout-minutes: 100
-    environment:
-      name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
 
@@ -56,9 +53,16 @@ jobs:
           git diff --cached --quiet || git commit -m "Role check $(date -u +%Y-%m-%dT%H:%MZ)"
           git pull --rebase --autostash && git push
 
-      - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site
+
+  publish:
+    needs: track
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
       - id: deploy
         uses: actions/deploy-pages@v4
