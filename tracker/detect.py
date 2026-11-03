@@ -54,14 +54,17 @@ def fingerprint(page_html: str, final_url: str) -> dict | None:
     if m:
         return {"type": "ashby", "board": m.group(1)}
     m = SR_RE.search(blob)
-    if m and m.group(1).lower() not in ("company", "app", "static"):
+    if m and m.group(1).lower() not in ("company", "app", "static", "my-applications", "oneclick-ui"):
         return {"type": "smartrecruiters", "board": m.group(1)}
 
     eh = EIGHTFOLD_HOST_RE.search(blob)
     if eh or "eightfold" in page_html.lower() and "/careers" in final_url:
         dm = EIGHTFOLD_DOMAIN_RE.search(blob)
         if dm:
-            return {"type": "eightfold", "host": eh.group(1) if eh else host, "domain": dm.group(1)}
+            ef_host = eh.group(1) if eh else host
+            if ef_host == "app.eightfold.ai" and "eightfold.ai" not in host:
+                ef_host = host  # branded careers domain serves the API itself
+            return {"type": "eightfold", "host": ef_host, "domain": dm.group(1)}
 
     low = page_html.lower()
     if "jibecdn" in low or "jibe-" in low and "/api/jobs" in low:
@@ -72,6 +75,9 @@ def fingerprint(page_html: str, final_url: str) -> dict | None:
         return {"type": "radancy", "host": host}
     if "rmkcdn.successfactors.com" in low or "jobtitle-link" in low:
         return {"type": "successfactors", "host": host}
+    m = re.search(r"(https?://[^\s\"'<>]+?/(?:[a-z]{2}_[A-Z]{2})/[\w-]+)/(?:SearchJobs|JobDetail)", blob)
+    if m:
+        return {"type": "avature", "url": m.group(1) + "/SearchJobs"}
     m = ICIMS_RE.search(blob)
     if m:
         return {"type": "icims", "host": m.group(1)}
@@ -79,6 +85,9 @@ def fingerprint(page_html: str, final_url: str) -> dict | None:
 
 
 def phenom_prefix(page_html: str, final_url: str) -> str:
+    m = re.match(r"^(/[a-z]{2,6}/[a-z]{2}/)", urlparse(final_url).path + "/")
+    if m:
+        return m.group(1)  # the locale the site itself landed on (e.g. /global/en/)
     m = re.search(r'href="(?:https?://[^/"]+)?(/[a-z]{2,6}/[a-z]{2}/)search-results', page_html)
     if m:
         return m.group(1)
@@ -114,8 +123,10 @@ def candidate_links(page_html: str, base_url: str, limit: int = 8) -> list[str]:
     return out
 
 
-def fetch(url: str, browser=None) -> tuple[str, str] | None:
+def fetch(url: str, browser=None, browser_only: bool = False) -> tuple[str, str] | None:
     """Return (html, final_url); fall back to a real browser when blocked."""
+    if browser_only and browser is not None:
+        return browser.render(url)
     try:
         r = http.get(url)
         if r.status_code < 400 and len(r.text) > 500:
@@ -130,11 +141,21 @@ def fetch(url: str, browser=None) -> tuple[str, str] | None:
 
 
 def discover(careers_url: str, browser=None) -> tuple[dict | None, str]:
-    """Return (config or None, note)."""
+    """Return (config or None, note). With a browser, a second pass renders pages fully,
+    because many careers pages only reveal their job system after JavaScript runs."""
     first = parse_workday(careers_url)
     if first:
         return first, "workday URL given"
-    got = fetch(careers_url, browser)
+    cfg, note = _discover(careers_url, browser, browser_only=False)
+    if cfg is None and browser is not None and note != "careers page unreachable":
+        cfg2, note2 = _discover(careers_url, browser, browser_only=True)
+        if cfg2:
+            return cfg2, note2 + " (browser)"
+    return cfg, note
+
+
+def _discover(careers_url: str, browser, browser_only: bool) -> tuple[dict | None, str]:
+    got = fetch(careers_url, browser, browser_only)
     if not got:
         return None, "careers page unreachable"
     page, final = got
@@ -146,7 +167,7 @@ def discover(careers_url: str, browser=None) -> tuple[dict | None, str]:
         cfg = parse_workday(link)
         if cfg:
             return cfg, f"linked from {final}"
-        sub = fetch(link, browser)
+        sub = fetch(link, browser, browser_only)
         if not sub:
             continue
         cfg = fingerprint(*sub)

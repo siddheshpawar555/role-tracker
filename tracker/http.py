@@ -52,6 +52,10 @@ def set_deadline(ts: float | None) -> None:
     _local.deadline = ts
 
 
+def get_deadline() -> float | None:
+    return getattr(_local, "deadline", None)
+
+
 def remaining() -> float | None:
     d = getattr(_local, "deadline", None)
     return None if d is None else d - time.time()

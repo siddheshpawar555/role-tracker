@@ -85,6 +85,7 @@
   group: Automotive OEMs & vehicle manufacturers
   lca_evidence: unconfirmed
   careers_url: https://www.paccar.com/careers/
+  ats: {type: "successfactors", host: "jobs.paccar.com"}
 - id: 17
   name: International Motors (formerly Navistar)
   group: Automotive OEMs & vehicle manufacturers
@@ -125,6 +126,7 @@
   group: Automotive Tier 1 / Tier 2 suppliers
   lca_evidence: unconfirmed
   careers_url: https://www.aptiv.com/en/careers
+  ats: {type: "workday", url: "https://aptiv.wd5.myworkdayjobs.com/APTIV_CAREERS"}
 - id: 25
   name: BorgWarner
   group: Automotive Tier 1 / Tier 2 suppliers
@@ -245,6 +247,7 @@
   group: Automotive Tier 1 / Tier 2 suppliers
   lca_evidence: unconfirmed
   careers_url: https://www.skf.com/us/careers
+  ats: {type: "successfactors", host: "career.skf.com"}
 - id: 49
   name: The Timken Company
   group: Automotive Tier 1 / Tier 2 suppliers
@@ -265,6 +268,7 @@
   group: Automotive Tier 1 / Tier 2 suppliers
   lca_evidence: unconfirmed
   careers_url: https://www.linamar.com/careers
+  ats: {type: "oracle", host: "fa-epmd-saasfaprod1.fa.ocs.oraclecloud.com", site: "CX_3001"}
 - id: 53
   name: Gestamp
   group: Automotive Tier 1 / Tier 2 suppliers
@@ -355,6 +359,7 @@
   group: Automotive Tier 1 / Tier 2 suppliers
   lca_evidence: unconfirmed
   careers_url: https://www.brembo.com/en/company/careers
+  ats: {type: "oracle", host: "fa-eonj-saasfaprod1.fa.ocs.oraclecloud.com", site: "CX_1001"}
 - id: 71
   name: Medtronic
   group: Medical device / diagnostics / healthcare manufacturing
@@ -410,6 +415,7 @@
   group: Medical device / diagnostics / healthcare manufacturing
   lca_evidence: sector
   careers_url: https://jobs.siemens-healthineers.com/
+  ats: {type: "workday", url: "https://onehealthineers.wd3.myworkdayjobs.com/SHSJB"}
 - id: 82
   name: Johnson & Johnson MedTech
   group: Medical device / diagnostics / healthcare manufacturing
@@ -440,6 +446,7 @@
   group: Medical device / diagnostics / healthcare manufacturing
   lca_evidence: unconfirmed
   careers_url: https://careers.dexcom.com/
+  ats: {type: "eightfold", host: "careers.dexcom.com", domain: "dexcom.com"}
 - id: 88
   name: Hologic
   group: Medical device / diagnostics / healthcare manufacturing
@@ -470,6 +477,7 @@
   group: Medical device / diagnostics / healthcare manufacturing
   lca_evidence: unconfirmed
   careers_url: https://www.integralife.com/careers
+  ats: {type: "workday", url: "https://integralife.wd1.myworkdayjobs.com/Careers"}
 - id: 94
   name: ICU Medical
   group: Medical device / diagnostics / healthcare manufacturing
@@ -515,6 +523,7 @@
   group: Medical device / diagnostics / healthcare manufacturing
   lca_evidence: unconfirmed
   careers_url: https://careers.agilent.com/
+  ats: {type: "workday", url: "https://agilent.wd5.myworkdayjobs.com/Agilent_Careers"}
 - id: 103
   name: Revvity
   group: Medical device / diagnostics / healthcare manufacturing
@@ -565,6 +574,7 @@
   group: Pharmaceutical / biotech / contract pharma manufacturing
   lca_evidence: direct
   careers_url: https://www.pfizer.com/about/careers
+  ats: {type: "workday", url: "https://pfizer.wd1.myworkdayjobs.com/PfizerCareers"}
 - id: 113
   name: AbbVie
   group: Pharmaceutical / biotech / contract pharma manufacturing
@@ -585,11 +595,13 @@
   group: Pharmaceutical / biotech / contract pharma manufacturing
   lca_evidence: direct
   careers_url: https://careers.astrazeneca.com/
+  ats: {type: "radancy", host: "careers.astrazeneca.com"}
 - id: 117
   name: Thermo Fisher Scientific (Patheon)
   group: Pharmaceutical / biotech / contract pharma manufacturing
   lca_evidence: direct
   careers_url: https://jobs.thermofisher.com/
+  ats: {type: "phenom", host: "jobs.thermofisher.com", prefix: "/global/en/"}
 - id: 118
   name: GSK
   group: Pharmaceutical / biotech / contract pharma manufacturing
@@ -735,16 +747,19 @@
   group: Semiconductor / electronics / contract manufacturing
   lca_evidence: direct
   careers_url: https://jobs.intel.com/
+  ats: {type: "workday", url: "https://intel.wd1.myworkdayjobs.com/External"}
 - id: 147
   name: Applied Materials
   group: Semiconductor / electronics / contract manufacturing
   lca_evidence: direct
   careers_url: https://careers.appliedmaterials.com/
+  ats: {type: "eightfold", host: "careers.appliedmaterials.com", domain: "appliedmaterials.com"}
 - id: 148
   name: Lam Research
   group: Semiconductor / electronics / contract manufacturing
   lca_evidence: direct
   careers_url: https://careers.lamresearch.com/
+  ats: {type: "eightfold", host: "careers.lamresearch.com", domain: "lamresearch.com"}
 - id: 149
   name: Micron Technology
   group: Semiconductor / electronics / contract manufacturing
@@ -755,21 +770,25 @@
   group: Semiconductor / electronics / contract manufacturing
   lca_evidence: direct
   careers_url: https://careers.ti.com/
+  ats: {type: "oracle", host: "edbz.fa.us2.oraclecloud.com", site: "CX"}
 - id: 151
   name: Analog Devices
   group: Semiconductor / electronics / contract manufacturing
   lca_evidence: direct
   careers_url: https://www.analog.com/en/about-adi/careers.html
+  ats: {type: "workday", url: "https://analogdevices.wd1.myworkdayjobs.com/External"}
 - id: 152
   name: TSMC Arizona
   group: Semiconductor / electronics / contract manufacturing
   lca_evidence: direct
   careers_url: https://careers.tsmc.com/
+  ats: {type: "avature", url: "https://careers.tsmc.com/en_US/careers/SearchJobs"}
 - id: 153
   name: Samsung Austin Semiconductor
   group: Semiconductor / electronics / contract manufacturing
   lca_evidence: direct
   careers_url: https://www.samsung.com/us/sas/careers/
+  ats: {type: "workday", url: "https://sec.wd3.myworkdayjobs.com/Samsung_Careers"}
 - id: 154
   name: Foxconn Industrial Internet (FII USA)
   group: Semiconductor / electronics / contract manufacturing
@@ -780,6 +799,7 @@
   group: Semiconductor / electronics / contract manufacturing
   lca_evidence: sector
   careers_url: https://www.kla.com/careers
+  ats: {type: "workday", url: "https://kla.wd1.myworkdayjobs.com/Search"}
 - id: 156
   name: ASML
   group: Semiconductor / electronics / contract manufacturing
@@ -800,6 +820,7 @@
   group: Semiconductor / electronics / contract manufacturing
   lca_evidence: sector
   careers_url: https://gf.com/careers/
+  ats: {type: "eightfold", host: "careers.gf.com", domain: "globalfoundries.com"}
 - id: 160
   name: Advanced Micro Devices (AMD)
   group: Semiconductor / electronics / contract manufacturing
@@ -850,11 +871,13 @@
   group: Semiconductor / electronics / contract manufacturing
   lca_evidence: unconfirmed
   careers_url: https://www.broadcom.com/company/careers
+  ats: {type: "workday", url: "https://broadcom.wd1.myworkdayjobs.com/External_Career"}
 - id: 170
   name: Qualcomm
   group: Semiconductor / electronics / contract manufacturing
   lca_evidence: unconfirmed
   careers_url: https://careers.qualcomm.com/
+  ats: {type: "eightfold", host: "careers.qualcomm.com", domain: "qualcomm.com"}
 - id: 171
   name: NVIDIA
   group: Semiconductor / electronics / contract manufacturing
@@ -875,6 +898,7 @@
   group: Semiconductor / electronics / contract manufacturing
   lca_evidence: unconfirmed
   careers_url: https://www.plexus.com/en-us/careers
+  ats: {type: "eightfold", host: "plexus.eightfold.ai", domain: "plexus.com"}
 - id: 175
   name: Kimball Electronics
   group: Semiconductor / electronics / contract manufacturing
@@ -910,6 +934,7 @@
   group: Semiconductor / electronics / contract manufacturing
   lca_evidence: unconfirmed
   careers_url: https://www.mks.com/careers
+  ats: {type: "workday", url: "https://mksinst.wd1.myworkdayjobs.com/MKSCareersAmericas"}
 - id: 182
   name: Onto Innovation
   group: Semiconductor / electronics / contract manufacturing
@@ -935,6 +960,7 @@
   group: Industrial equipment / automation / materials / packaging
   lca_evidence: direct
   careers_url: https://careers.caterpillar.com/
+  ats: {type: "workday", url: "https://cat.wd5.myworkdayjobs.com/CaterpillarCareers"}
 - id: 187
   name: Cummins
   group: Industrial equipment / automation / materials / packaging
@@ -950,6 +976,7 @@
   group: Industrial equipment / automation / materials / packaging
   lca_evidence: sector
   careers_url: https://careers.honeywell.com/
+  ats: {type: "oracle", host: "ibqbjb.fa.ocs.oraclecloud.com", site: "CX_1"}
 - id: 190
   name: Parker Hannifin
   group: Industrial equipment / automation / materials / packaging
@@ -1000,11 +1027,13 @@
   group: Industrial equipment / automation / materials / packaging
   lca_evidence: unconfirmed
   careers_url: https://jobs.siemens.com/
+  ats: {type: "avature", url: "https://jobs.siemens.com/en_US/externaljobs/SearchJobs"}
 - id: 200
   name: GE Aerospace
   group: Industrial equipment / automation / materials / packaging
   lca_evidence: unconfirmed
   careers_url: https://careers.geaerospace.com/
+  ats: {type: "workday", url: "https://geaerospace.wd5.myworkdayjobs.com/GE_ExternalSite"}
 - id: 201
   name: GE Vernova
   group: Industrial equipment / automation / materials / packaging
@@ -1025,16 +1054,19 @@
   group: Industrial equipment / automation / materials / packaging
   lca_evidence: unconfirmed
   careers_url: https://careers.honeywell.com/
+  ats: {type: "oracle", host: "ibqbjb.fa.ocs.oraclecloud.com", site: "CX_1"}
 - id: 205
   name: Lockheed Martin
   group: Industrial equipment / automation / materials / packaging
   lca_evidence: unconfirmed
   careers_url: https://www.lockheedmartinjobs.com/
+  ats: {type: "eightfold", host: "lockheedmartin.eightfold.ai", domain: "lockheedmartin.com"}
 - id: 206
   name: Northrop Grumman
   group: Industrial equipment / automation / materials / packaging
   lca_evidence: unconfirmed
   careers_url: https://www.northropgrumman.com/careers
+  ats: {type: "eightfold", host: "ngc.eightfold.ai", domain: "ngc.com"}
 - id: 207
   name: The Boeing Company
   group: Industrial equipment / automation / materials / packaging
@@ -1164,7 +1196,7 @@
   name: Generac
   group: Industrial equipment / automation / materials / packaging
   lca_evidence: unconfirmed
-  careers_url: https://www.generac.com/about/careers/
+  careers_url: https://careers.generac.com/en/
 - id: 233
   name: Hubbell
   group: Industrial equipment / automation / materials / packaging
@@ -1185,6 +1217,7 @@
   group: Industrial equipment / automation / materials / packaging
   lca_evidence: unconfirmed
   careers_url: https://www.wabteccorp.com/careers
+  ats: {type: "smartrecruiters", board: "Wabtec"}
 - id: 237
   name: BWX Technologies
   group: Industrial equipment / automation / materials / packaging

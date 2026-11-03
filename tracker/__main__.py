@@ -83,14 +83,14 @@ class Runner:
         with self.lock:
             if key in self.shared:
                 return self.shared[key]
-        if t in adapters.ADAPTERS:
+        from .browser import BROWSER_ADAPTERS
+
+        if browser is not None and t in BROWSER_ADAPTERS:
+            jobs = BROWSER_ADAPTERS[t](browser, cfg, terms)
+        elif t in adapters.ADAPTERS:
             jobs = adapters.ADAPTERS[t](cfg, terms)
         else:
-            from .browser import BROWSER_ADAPTERS
-
-            if browser is None:
-                raise RuntimeError(f"{t} needs the headless browser")
-            jobs = BROWSER_ADAPTERS[t](browser, cfg, terms)
+            raise RuntimeError(f"{t} needs the headless browser")
         with self.lock:
             self.shared[key] = jobs
         return jobs

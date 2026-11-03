@@ -51,6 +51,25 @@ class Browser:
         finally:
             page.close()
 
+    def json_session(self, page_url: str):
+        """Open page_url once (passes bot checks, sets cookies); return fetch(url) -> parsed JSON
+        made from inside that page, plus a close() callback."""
+        http.check_deadline()
+        page = self._ctx.new_page()
+        page.goto(page_url, wait_until="domcontentloaded", timeout=45000)
+        page.wait_for_timeout(4000)
+
+        def fetch(url: str):
+            http.check_deadline()
+            text = page.evaluate(
+                "async (u) => { const r = await fetch(u, {credentials: 'include', headers: {Accept: 'application/json'}});"
+                " if (!r.ok) throw new Error('HTTP ' + r.status); return await r.text(); }",
+                url,
+            )
+            return json.loads(text)
+
+        return fetch, page.close
+
     def close(self):
         try:
             self._browser.close()
@@ -90,4 +109,21 @@ def generic_browser(browser: Browser, cfg: dict, terms) -> list[dict]:
     return parse_generic_html(*got)
 
 
-BROWSER_ADAPTERS = {"tesla": tesla, "browser": generic_browser}
+def eightfold_browser(browser: Browser, cfg: dict, terms) -> list[dict]:
+    """Eightfold sites that refuse plain HTTP: call the same API from inside a real page."""
+    from . import adapters
+
+    fetch, close = browser.json_session(f"https://{cfg['host']}/careers?domain={cfg['domain']}")
+    try:
+        # the page object belongs to this thread, so run terms one at a time
+        old = adapters.TERM_WORKERS
+        adapters.TERM_WORKERS = 1
+        try:
+            return adapters.eightfold(cfg, terms, fetch_json=fetch)
+        finally:
+            adapters.TERM_WORKERS = old
+    finally:
+        close()
+
+
+BROWSER_ADAPTERS = {"tesla": tesla, "browser": generic_browser, "eightfold": eightfold_browser}

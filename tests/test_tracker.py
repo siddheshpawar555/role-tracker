@@ -212,3 +212,52 @@ def test_over_terms_propagates_deadline():
         return [{"id": term, "title": term, "url": term}]
     with pytest.raises(http.DeadlineExceeded):
         adapters._over_terms(["a", "b", "c"], fn)
+
+
+def test_parse_eightfold_both_apis():
+    new = {"data": {"count": 1, "positions": [{"id": 5, "name": "Process Engineer", "locations": ["Austin, TX, US"],
+                                               "positionUrl": "/careers/job/5", "postedTs": 1793600000}]}}
+    jobs, total = adapters.parse_eightfold(new, "careers.x.com", "x.com")
+    assert total == 1 and jobs[0]["url"] == "https://careers.x.com/careers/job/5" and jobs[0]["location"] == "Austin, TX, US"
+    old = {"count": 1, "positions": [{"id": 6, "name": "Quality Engineer", "locations": ["Boise, ID"],
+                                      "canonicalPositionUrl": "https://x.eightfold.ai/careers/job/6"}]}
+    jobs, total = adapters.parse_eightfold(old, "x.eightfold.ai", "x.com")
+    assert jobs[0]["id"] == "6" and jobs[0]["url"].endswith("/6")
+
+
+def test_eightfold_falls_back_to_second_api(monkeypatch):
+    seen = []
+
+    def fake(url):
+        seen.append(url)
+        if "/pcsx/" in url:
+            raise RuntimeError("404")
+        return {"count": 1, "positions": [{"id": 1, "name": "Quality Engineer", "locations": ["Boise, ID"]}]}
+
+    monkeypatch.setattr(http, "polite_sleep", lambda *_: None)
+    jobs = adapters.eightfold({"host": "h", "domain": "d"}, ["quality engineer", "process engineer"], fetch_json=fake)
+    assert len(jobs) == 1
+    assert sum("/pcsx/" in u for u in seen) == 1  # remembered which API works
+
+
+def test_phenom_locale_and_prefix():
+    assert adapters._phenom_locale("/global/en/") == ("en_global", "global")
+    assert detect.phenom_prefix('<a href="/us/en/search-results">', "https://jobs.thermofisher.com/global/en") == "/global/en/"
+
+
+def test_fingerprint_branded_eightfold_and_avature():
+    fp = detect.fingerprint('<script src="https://app.eightfold.ai/x.js"></script><script>{"domain": "dexcom.com"}</script>',
+                            "https://careers.dexcom.com/careers?start=0")
+    assert fp == {"type": "eightfold", "host": "careers.dexcom.com", "domain": "dexcom.com"}
+    fp = detect.fingerprint('<a href="https://jobs.siemens.com/en_US/externaljobs/JobDetail/123">x</a>', "https://jobs.siemens.com/")
+    assert fp == {"type": "avature", "url": "https://jobs.siemens.com/en_US/externaljobs/SearchJobs"}
+
+
+def test_avature_adapter(monkeypatch):
+    html = ('<article class="article--result"><h3><a href="https://jobs.siemens.com/en_US/externaljobs/JobDetail/Process-Engineer/498765">'
+            'Process Engineer</a></h3><div class="list-item-location">Charlotte, North Carolina, United States</div></article>')
+    monkeypatch.setattr(http, "get", lambda url, **kw: FakeResp(text=html))
+    jobs = adapters.avature({"url": "https://jobs.siemens.com/en_US/externaljobs/SearchJobs"}, ["process engineer"])
+    assert jobs == [{"id": "498765", "title": "Process Engineer",
+                     "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/Process-Engineer/498765",
+                     "location": "Charlotte, North Carolina, United States", "posted": None}]

@@ -77,17 +77,41 @@ def _dedupe(jobs: Iterable[dict]) -> list[dict]:
     return out
 
 
+TERM_WORKERS = 3
+
+
 def _over_terms(terms: list[str], fn: Callable[[str], list[dict]]) -> list[dict]:
+    """Run one search per term. The first term runs alone (if it fails, the site is down and we
+    stop); the rest run a few at a time, sharing the caller's time limit."""
     out, errors = [], []
-    for i, t in enumerate(terms):
+    if not terms:
+        return []
+    try:
+        out.extend(fn(terms[0]))
+    except http.DeadlineExceeded:
+        raise
+    except Exception as e:
+        raise AdapterError(f"{e}") from e
+    deadline = http.get_deadline()
+
+    def one(t):
+        http.set_deadline(deadline)
         try:
-            out.extend(fn(t))
-        except http.DeadlineExceeded:
-            raise
-        except Exception as e:  # keep going with other terms, unless the very first one fails
-            errors.append(f"{t}: {e}")
-            if i == 0:
-                raise AdapterError(f"{e}") from e
+            return fn(t)
+        finally:
+            http.set_deadline(None)
+
+    from concurrent.futures import ThreadPoolExecutor
+
+    with ThreadPoolExecutor(max_workers=TERM_WORKERS) as ex:
+        futs = {ex.submit(one, t): t for t in terms[1:]}
+        for f, t in futs.items():
+            try:
+                out.extend(f.result())
+            except http.DeadlineExceeded:
+                raise
+            except Exception as e:  # keep going with other terms
+                errors.append(f"{t}: {e}")
     if errors and not out:
         raise AdapterError("; ".join(errors[:3]))
     return _dedupe(out)
@@ -276,31 +300,65 @@ def smartrecruiters(cfg: dict, terms: list[str]) -> list[dict]:
 
 
 # ---------------------------------------------------------------- Eightfold
-def eightfold(cfg: dict, terms: list[str]) -> list[dict]:
+def _eightfold_urls(host: str, domain: str, term: str, start: int) -> list[str]:
+    q, loc = quote_plus(term), "United%20States"
+    return [
+        f"https://{host}/api/pcsx/search?domain={domain}&query={q}&location={loc}&start={start}",
+        f"https://{host}/api/apply/v2/jobs?domain={domain}&start={start}&num=10&query={q}&location={loc}&sort_by=timestamp",
+    ]
+
+
+def parse_eightfold(data: dict, host: str, domain: str) -> tuple[list[dict], int]:
+    """Handles both the newer PCSX API ({data:{positions,count}}) and the older apply/v2 API."""
+    d = data.get("data") if isinstance(data.get("data"), dict) else data
+    pos = d.get("positions") or []
+    total = d.get("count") or d.get("total") or 0
+    out = []
+    for p in pos:
+        pid = str(p.get("id") or p.get("ats_job_id") or p.get("displayJobId"))
+        locs = p.get("locations") or p.get("standardizedLocations") or [p.get("location", "")]
+        locs = [x if isinstance(x, str) else (x.get("name") or x.get("location") or "") for x in locs]
+        url = p.get("canonicalPositionUrl") or p.get("positionUrl") or f"/careers/job/{pid}"
+        if url.startswith("/"):
+            url = f"https://{host}{url}"
+        out.append({
+            "id": pid,
+            "title": p.get("name") or p.get("title") or "",
+            "url": url,
+            "location": "; ".join(x for x in locs if x),
+            "posted": _iso(p.get("t_create") or p.get("postedTs") or p.get("creationTs")),
+        })
+    return out, total
+
+
+def eightfold(cfg: dict, terms: list[str], fetch_json=None) -> list[dict]:
     host, domain = cfg["host"], cfg["domain"]
+    fetch_json = fetch_json or http.get_json
+    api_index = {"i": None}  # which of the two APIs works for this site
 
     def search(term: str) -> list[dict]:
         out, start = [], 0
         for _ in range(MAX_PAGES_PER_TERM * 2):
-            url = (
-                f"https://{host}/api/apply/v2/jobs?domain={domain}&start={start}&num=10"
-                f"&query={quote_plus(term)}&location=United%20States&sort_by=timestamp"
-            )
-            data = http.get_json(url)
-            pos = data.get("positions") or []
-            for p in pos:
-                locs = p.get("locations") or [p.get("location", "")]
-                out.append(
-                    {
-                        "id": str(p.get("id") or p.get("ats_job_id")),
-                        "title": p.get("name", ""),
-                        "url": p.get("canonicalPositionUrl") or f"https://{host}/careers?pid={p.get('id')}&domain={domain}",
-                        "location": "; ".join(x for x in locs if x),
-                        "posted": _iso(p.get("t_create")),
-                    }
-                )
-            start += len(pos)
-            if not pos or start >= (data.get("count") or 0):
+            urls = _eightfold_urls(host, domain, term, start)
+            order = [api_index["i"]] if api_index["i"] is not None else [0, 1]
+            data, err = None, None
+            for i in order:
+                try:
+                    data = fetch_json(urls[i])
+                    if isinstance(data, dict) and (data.get("data") or data.get("positions") is not None):
+                        api_index["i"] = i
+                        break
+                    data = None
+                except http.DeadlineExceeded:
+                    raise
+                except Exception as e:
+                    err = e
+            if data is None:
+                raise AdapterError(f"eightfold: {err or 'unexpected response'}")
+            jobs, total = parse_eightfold(data, host, domain)
+            out.extend(jobs)
+            start += len(jobs)
+            if not jobs or start >= total:
                 break
             http.polite_sleep(0.2)
         return out
@@ -362,35 +420,77 @@ def _phenom_ddo(page_html: str) -> dict | None:
         return None
 
 
+_PH_REF = re.compile(r'"refNum"\s*:\s*"([A-Za-z0-9]+)"')
+
+
+def _phenom_locale(prefix: str) -> tuple[str, str]:
+    """'/global/en/' -> ('en_global', 'global'); '/us/en/' -> ('en_us', 'us')."""
+    parts = [x for x in prefix.split("/") if x]
+    country = parts[0] if parts else "us"
+    lang = parts[1] if len(parts) > 1 else "en"
+    return f"{lang}_{country}", country
+
+
+def _phenom_job(j: dict, host: str, prefix: str) -> dict:
+    jid = str(j.get("jobId") or j.get("reqId") or j.get("jobSeqNo"))
+    loc = j.get("location") or ", ".join(x for x in (j.get("city"), j.get("state"), j.get("country")) if x)
+    if not loc and j.get("multi_location"):
+        loc = "; ".join(j["multi_location"][:5])
+    return {"id": jid, "title": j.get("title", ""), "url": f"https://{host}{prefix}job/{jid}",
+            "location": loc, "posted": _iso(j.get("postedDate") or j.get("dateCreated"))}
+
+
 def phenom(cfg: dict, terms: list[str]) -> list[dict]:
     host, prefix = cfg["host"], cfg.get("prefix", "/us/en/")
+    state = {"ref": cfg.get("refNum"), "mode": None}
+    lang, country = _phenom_locale(prefix)
+
+    def ref() -> str | None:
+        if not state["ref"]:
+            r = http.get(f"https://{host}{prefix}")
+            m = _PH_REF.search(r.text)
+            state["ref"] = m.group(1) if m else None
+        return state["ref"]
+
+    def widgets(term: str, start: int) -> dict | None:
+        body = {
+            "lang": lang, "deviceType": "desktop", "country": country, "pageName": "search-results",
+            "ddoKey": "refineSearch", "sortBy": "Most recent", "subsearch": "", "from": start, "jobs": True,
+            "counts": True, "all_fields": ["country", "state", "city", "category"], "size": 50,
+            "clearAll": False, "jdsource": "facets", "isSliderEnable": False, "pageId": "page20",
+            "siteType": "external", "keywords": term, "global": True, "selected_fields": {"country": ["United States"]},
+            "locationData": {}, "refNum": ref(),
+        }
+        r = http.post(f"https://{host}/widgets", json=body,
+                      headers={"Content-Type": "application/json", "Accept": "application/json"})
+        if r.status_code >= 400:
+            return None
+        try:
+            return (r.json() or {}).get("refineSearch")
+        except ValueError:
+            return None
+
+    def embedded(term: str, start: int) -> dict | None:
+        url = f"https://{host}{prefix}search-results?keywords={quote_plus(term)}&from={start}&s=1"
+        r = http.get(url)
+        if r.status_code >= 400:
+            return None
+        return _phenom_ddo(r.text)
 
     def search(term: str) -> list[dict]:
         out, start = [], 0
         for _ in range(MAX_PAGES_PER_TERM):
-            url = f"https://{host}{prefix}search-results?keywords={quote_plus(term)}&from={start}&s=1"
-            r = http.get(url)
-            if r.status_code >= 400:
-                raise AdapterError(f"phenom HTTP {r.status_code}")
-            ddo = _phenom_ddo(r.text)
+            ddo = None
+            for mode in ([state["mode"]] if state["mode"] else ["embedded", "widgets"]):
+                ddo = embedded(term, start) if mode == "embedded" else widgets(term, start)
+                if ddo and (ddo.get("data") or {}).get("jobs") is not None:
+                    state["mode"] = mode
+                    break
+                ddo = None
             if ddo is None:
-                raise AdapterError("phenom: no embedded results")
-            data = ddo.get("data") or {}
-            jobs = data.get("jobs") or []
-            for j in jobs:
-                jid = str(j.get("jobId") or j.get("reqId") or j.get("jobSeqNo"))
-                loc = j.get("location") or ", ".join(
-                    x for x in (j.get("city"), j.get("state"), j.get("country")) if x
-                )
-                out.append(
-                    {
-                        "id": jid,
-                        "title": j.get("title", ""),
-                        "url": f"https://{host}{prefix}job/{jid}",
-                        "location": loc,
-                        "posted": _iso(j.get("postedDate") or j.get("dateCreated")),
-                    }
-                )
+                raise AdapterError("phenom: no results from search page or widgets API")
+            jobs = (ddo.get("data") or {}).get("jobs") or []
+            out.extend(_phenom_job(j, host, prefix) for j in jobs)
             start += len(jobs)
             total = ddo.get("totalHits") or ddo.get("hits") or 0
             if not jobs or start >= total:
@@ -589,6 +689,47 @@ def generic(cfg: dict, terms: list[str]) -> list[dict]:
     return parse_generic_html(r.text, r.url)
 
 
+# ---------------------------------------------------------------- Avature
+def avature(cfg: dict, terms: list[str]) -> list[dict]:
+    """Avature career sites, e.g. https://jobs.siemens.com/en_US/externaljobs/SearchJobs."""
+    base = cfg["url"].rstrip("/")  # .../SearchJobs
+    host = urlparse(base).netloc
+
+    def search(term: str) -> list[dict]:
+        out, offset = [], 0
+        for _ in range(MAX_PAGES_PER_TERM):
+            r = http.get(f"{base}/?search={quote_plus(term)}&jobRecordsPerPage=50&jobOffset={offset}")
+            if r.status_code >= 400:
+                raise AdapterError(f"avature HTTP {r.status_code}")
+            soup = BeautifulSoup(r.text, "html.parser")
+            found = 0
+            for a in soup.select('a[href*="JobDetail"]'):
+                href = urljoin(base + "/", a["href"])
+                m = re.search(r"(?:JobDetail/(?:[^/]+/)?|jobId=)(\d+)", href)
+                title = a.get_text(" ", strip=True)
+                if not m or not title or len(title) < 4:
+                    continue
+                box = a.find_parent(["article", "li"]) or a.find_parent("div")
+                loc = ""
+                if box:
+                    el = box.select_one('[class*="location" i], [class*="Location"]')
+                    loc = el.get_text(" ", strip=True) if el else ""
+                    if not loc:
+                        # Avature lists often show "Location: City, ST" in a meta line
+                        lm = re.search(r"Location[s]?:?\s*([^|\n]{3,80})", box.get_text("\n", strip=True))
+                        loc = lm.group(1).strip() if lm else ""
+                out.append({"id": m.group(1), "title": title, "url": href.split("&source")[0],
+                            "location": loc, "posted": None})
+                found += 1
+            offset += 50
+            if found < 10:
+                break
+            http.polite_sleep(0.3)
+        return out
+
+    return _over_terms(terms, search)
+
+
 ADAPTERS: dict[str, Callable[[dict, list[str]], list[dict]]] = {
     "workday": workday,
     "greenhouse": greenhouse,
@@ -602,6 +743,7 @@ ADAPTERS: dict[str, Callable[[dict, list[str]], list[dict]]] = {
     "successfactors": successfactors,
     "icims": icims,
     "jibe": jibe,
+    "avature": avature,
     "generic": generic,
 }
 
