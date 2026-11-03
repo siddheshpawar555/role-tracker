@@ -6,6 +6,8 @@ from __future__ import annotations
 
 import json
 
+from . import http
+
 
 class Browser:
     def __init__(self):
@@ -23,9 +25,10 @@ class Browser:
         )
 
     def render(self, url: str, wait_ms: int = 4000) -> tuple[str, str] | None:
+        http.check_deadline()
         page = self._ctx.new_page()
         try:
-            page.goto(url, wait_until="domcontentloaded", timeout=45000)
+            page.goto(url, wait_until="domcontentloaded", timeout=30000)
             page.wait_for_timeout(wait_ms)
             return page.content(), page.url
         except Exception:
@@ -35,9 +38,10 @@ class Browser:
 
     def fetch_json_in_page(self, page_url: str, api_url: str):
         """Open page_url (to pass bot checks) then fetch api_url from inside it."""
+        http.check_deadline()
         page = self._ctx.new_page()
         try:
-            page.goto(page_url, wait_until="domcontentloaded", timeout=60000)
+            page.goto(page_url, wait_until="domcontentloaded", timeout=45000)
             page.wait_for_timeout(5000)
             text = page.evaluate(
                 "async (u) => { const r = await fetch(u, {credentials: 'include'}); return await r.text(); }",

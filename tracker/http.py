@@ -13,6 +13,11 @@ UA = (
     "(KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
 )
 TIMEOUT = 30
+CONNECT_TIMEOUT = 10
+
+
+class DeadlineExceeded(RuntimeError):
+    pass
 
 _local = threading.local()
 
@@ -22,8 +27,9 @@ def session() -> requests.Session:
     if s is None:
         s = requests.Session()
         retry = Retry(
-            total=3,
-            backoff_factor=1.5,
+            total=2,
+            connect=1,
+            backoff_factor=1.0,
             status_forcelist=(429, 500, 502, 503, 504),
             allowed_methods=frozenset(["GET", "POST"]),
             respect_retry_after_header=True,
@@ -41,13 +47,36 @@ def session() -> requests.Session:
     return s
 
 
+def set_deadline(ts: float | None) -> None:
+    """Per-thread wall-clock limit (time.time() value); requests after it raise DeadlineExceeded."""
+    _local.deadline = ts
+
+
+def remaining() -> float | None:
+    d = getattr(_local, "deadline", None)
+    return None if d is None else d - time.time()
+
+
+def check_deadline() -> None:
+    left = remaining()
+    if left is not None and left <= 0:
+        raise DeadlineExceeded("time limit for this company reached")
+
+
+def _timeout(kw: dict) -> None:
+    check_deadline()
+    left = remaining()
+    read = TIMEOUT if left is None else max(3.0, min(TIMEOUT, left))
+    kw.setdefault("timeout", (min(CONNECT_TIMEOUT, read), read))
+
+
 def get(url: str, **kw) -> requests.Response:
-    kw.setdefault("timeout", TIMEOUT)
+    _timeout(kw)
     return session().get(url, **kw)
 
 
 def post(url: str, **kw) -> requests.Response:
-    kw.setdefault("timeout", TIMEOUT)
+    _timeout(kw)
     return session().post(url, **kw)
 
 

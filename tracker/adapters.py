@@ -82,6 +82,8 @@ def _over_terms(terms: list[str], fn: Callable[[str], list[dict]]) -> list[dict]
     for i, t in enumerate(terms):
         try:
             out.extend(fn(t))
+        except http.DeadlineExceeded:
+            raise
         except Exception as e:  # keep going with other terms, unless the very first one fails
             errors.append(f"{t}: {e}")
             if i == 0:

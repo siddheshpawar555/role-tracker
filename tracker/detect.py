@@ -120,6 +120,8 @@ def fetch(url: str, browser=None) -> tuple[str, str] | None:
         r = http.get(url)
         if r.status_code < 400 and len(r.text) > 500:
             return r.text, r.url
+    except http.DeadlineExceeded:
+        raise
     except Exception:
         pass
     if browser is not None:
@@ -140,6 +142,7 @@ def discover(careers_url: str, browser=None) -> tuple[dict | None, str]:
     if cfg:
         return cfg, f"found on {final}"
     for link in candidate_links(page, final):
+        http.check_deadline()
         cfg = parse_workday(link)
         if cfg:
             return cfg, f"linked from {final}"

@@ -183,3 +183,22 @@ def test_dashboard_build(tmp_path):
     p = build(s.data, tmp_path / "site")
     html = p.read_text()
     assert "/*__DATA__*/" not in html and "A<\\/script>" in html
+
+
+def test_deadline_stops_requests():
+    import time as _t
+    http.set_deadline(_t.time() - 1)
+    try:
+        with pytest.raises(http.DeadlineExceeded):
+            http.get("https://example.invalid/")
+    finally:
+        http.set_deadline(None)
+
+
+def test_over_terms_propagates_deadline():
+    def fn(term):
+        if term == "b":
+            raise http.DeadlineExceeded("x")
+        return [{"id": term, "title": term, "url": term}]
+    with pytest.raises(http.DeadlineExceeded):
+        adapters._over_terms(["a", "b", "c"], fn)

@@ -19,7 +19,7 @@ from pathlib import Path
 
 import yaml
 
-from . import adapters, detect
+from . import adapters, detect, http
 from .dashboard import build as build_dashboard
 from .match import RoleMatcher, is_us_location
 from .store import Store, now_iso
@@ -28,6 +28,8 @@ ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
 ATS_CACHE = DATA / "ats_cache.json"
 REDISCOVER_AFTER_DAYS = 14
+COMPANY_LIMIT_SECS = 6 * 60          # phase 1 (plain HTTP) per company
+BROWSER_COMPANY_LIMIT_SECS = 150     # phase 2 (headless browser) per company
 
 
 def load_companies(only: set[int] | None) -> list[dict]:
@@ -47,6 +49,7 @@ class Runner:
         self.lock = threading.Lock()
         self.shared: dict[str, tuple] = {}  # same feed used by two companies -> scrape once
         self.deferred: list[dict] = []
+        self.stop_at: float | None = None  # overall wall-clock limit for the current phase
 
     # ---- config resolution
     def resolve(self, company: dict, browser=None) -> tuple[dict | None, str]:
@@ -105,6 +108,17 @@ class Runner:
 
     def run_company(self, company: dict, browser=None) -> dict:
         t0 = time.time()
+        if self.stop_at and t0 >= self.stop_at:
+            return {"company": company, "ok": False, "error": "not reached this run (time limit)", "cfg": None,
+                    "skipped": True}
+        cap = BROWSER_COMPANY_LIMIT_SECS if browser is not None else COMPANY_LIMIT_SECS
+        http.set_deadline(min(t0 + cap, self.stop_at or float("inf")))
+        try:
+            return self._run_company(company, browser, t0)
+        finally:
+            http.set_deadline(None)
+
+    def _run_company(self, company: dict, browser, t0: float) -> dict:
         try:
             cfg, note = self.resolve(company, browser)
         except Exception as e:
@@ -132,8 +146,12 @@ def cmd_run(args) -> int:
     runner = Runner(matcher, use_browser=not args.no_browser)
     run_ts = now_iso()
     results: dict[int, dict] = {}
+    start = time.time()
+    budget = args.budget_minutes * 60
+    runner.stop_at = start + budget * 0.65
 
-    print(f"Checking {len(companies)} companies with {args.workers} workers…", flush=True)
+    print(f"Checking {len(companies)} companies with {args.workers} workers "
+          f"(time budget {args.budget_minutes} min)…", flush=True)
     with ThreadPoolExecutor(max_workers=args.workers) as ex:
         futs = {ex.submit(runner.run_company, c): c for c in companies}
         for f in as_completed(futs):
@@ -143,8 +161,10 @@ def cmd_run(args) -> int:
             status = f"{len(r['jobs'])} matches / {r['scanned']} scanned" if r["ok"] else f"FAILED – {r['error']}"
             print(f"  [{c['id']:>3}] {c['name']:<40} {(r['cfg'] or {}).get('type', '-'):<15} {status}", flush=True)
 
-    retry = [r["company"] for r in results.values() if not r["ok"]]
-    if retry and runner.use_browser:
+    print(f"Plain-HTTP pass finished in {(time.time() - start) / 60:.1f} min", flush=True)
+    runner.stop_at = start + budget
+    retry = [r["company"] for r in results.values() if not r["ok"] and not r.get("skipped")]
+    if retry and runner.use_browser and time.time() < runner.stop_at:
         try:
             from .browser import Browser
 
@@ -156,6 +176,9 @@ def cmd_run(args) -> int:
             print(f"Retrying {len(retry)} companies with the headless browser…", flush=True)
             try:
                 for c in retry:
+                    if time.time() >= runner.stop_at:
+                        print("Time budget used up; remaining companies will be retried next run.", flush=True)
+                        break
                     prev = results[c["id"]]
                     if prev.get("cfg") and prev["cfg"]["type"] not in ("tesla", "browser"):
                         runner.cache.pop(str(c["id"]), None)  # force rediscovery through the browser
@@ -163,11 +186,14 @@ def cmd_run(args) -> int:
                     if not r["ok"] and r.get("cfg") is None:
                         # last resort: read job links straight off the careers page
                         try:
+                            http.set_deadline(time.time() + 60)
                             raw = runner.scrape({"type": "browser", "url": c["careers_url"]}, browser)
                             r = {"company": c, "ok": True, "cfg": {"type": "browser", "url": c["careers_url"]},
                                  "scanned": len(raw), "jobs": runner.filter(raw), "partial": True}
                         except Exception as e:
                             r["error"] += f"; browser: {e}"
+                        finally:
+                            http.set_deadline(None)
                     results[c["id"]] = r
                     status = f"{len(r['jobs'])} matches" if r["ok"] else f"FAILED – {r['error']}"
                     print(f"  [{c['id']:>3}] {c['name']:<40} {status}", flush=True)
@@ -199,7 +225,8 @@ def cmd_run(args) -> int:
     ATS_CACHE.write_text(json.dumps(runner.cache, indent=1, sort_keys=True))
     build_dashboard(store.data, ROOT / "site")
     write_summary(run_ts, ok, failed, new_roles)
-    print(f"\nDone: {ok} companies OK, {failed} failed, {new_total} new roles.")
+    print(f"\nDone in {(time.time() - start) / 60:.1f} min: {ok} companies OK, {failed} failed, "
+          f"{new_total} new roles.")
     return 0
 
 
@@ -223,6 +250,8 @@ def main() -> int:
     r.add_argument("--only", help="comma-separated company ids")
     r.add_argument("--workers", type=int, default=16)
     r.add_argument("--no-browser", action="store_true")
+    r.add_argument("--budget-minutes", type=float, default=75,
+                   help="stop starting new companies after this long (results so far are saved)")
     sub.add_parser("dashboard")
     args = p.parse_args()
     if args.cmd == "run":
