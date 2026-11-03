@@ -365,6 +365,7 @@
   group: Medical device / diagnostics / healthcare manufacturing
   lca_evidence: direct
   careers_url: https://jobs.medtronic.com/
+  ats: {type: "workday", url: "https://medtronic.wd1.myworkdayjobs.com/MedtronicCareers"}
 - id: 72
   name: Becton, Dickinson and Company (BD)
   group: Medical device / diagnostics / healthcare manufacturing
@@ -405,6 +406,7 @@
   group: Medical device / diagnostics / healthcare manufacturing
   lca_evidence: sector
   careers_url: https://www.edwards.com/careers
+  ats: {type: "workday", url: "https://edwards.wd5.myworkdayjobs.com/EdwardsCareers"}
 - id: 80
   name: GE HealthCare
   group: Medical device / diagnostics / healthcare manufacturing
@@ -549,6 +551,7 @@
   group: Medical device / diagnostics / healthcare manufacturing
   lca_evidence: unconfirmed
   careers_url: https://jobs.cardinalhealth.com/
+  ats: {type: "workday", url: "https://cardinalhealth.wd1.myworkdayjobs.com/EXT"}
 - id: 108
   name: CooperSurgical
   group: Medical device / diagnostics / healthcare manufacturing
@@ -632,6 +635,7 @@
   group: Pharmaceutical / biotech / contract pharma manufacturing
   lca_evidence: sector
   careers_url: https://www.novartis.com/careers
+  ats: {type: "workday", url: "https://novartis.wd3.myworkdayjobs.com/Novartis_Careers"}
 - id: 124
   name: Bayer
   group: Pharmaceutical / biotech / contract pharma manufacturing
@@ -657,6 +661,7 @@
   group: Pharmaceutical / biotech / contract pharma manufacturing
   lca_evidence: sector
   careers_url: https://careers.vrtx.com/
+  ats: {type: "workday", url: "https://vrtx.wd501.myworkdayjobs.com/Vertex_Careers"}
 - id: 129
   name: Moderna
   group: Pharmaceutical / biotech / contract pharma manufacturing
@@ -950,6 +955,7 @@
   group: Semiconductor / electronics / contract manufacturing
   lca_evidence: unconfirmed
   careers_url: https://careers.microchip.com/
+  ats: {type: "workday", url: "https://wd5.myworkdaysite.com/recruiting/microchiphr/External"}
 - id: 185
   name: Vishay Intertechnology
   group: Semiconductor / electronics / contract manufacturing
@@ -971,6 +977,7 @@
   group: Industrial equipment / automation / materials / packaging
   lca_evidence: sector
   careers_url: https://www.eaton.com/us/en-us/company/careers.html
+  ats: {type: "workday", url: "https://eaton.wd1.myworkdayjobs.com/eaton_careers"}
 - id: 189
   name: Honeywell
   group: Industrial equipment / automation / materials / packaging
@@ -982,11 +989,13 @@
   group: Industrial equipment / automation / materials / packaging
   lca_evidence: sector
   careers_url: https://www.parker.com/us/en/careers.html
+  ats: {type: "workday", url: "https://parker.wd5.myworkdayjobs.com/Parker_Careers"}
 - id: 191
   name: Rockwell Automation
   group: Industrial equipment / automation / materials / packaging
   lca_evidence: sector
   careers_url: https://www.rockwellautomation.com/en-us/company/careers.html
+  ats: {type: "workday", url: "https://rockwellautomation.wd1.myworkdayjobs.com/External_Rockwell_Automation"}
 - id: 192
   name: Schneider Electric
   group: Industrial equipment / automation / materials / packaging
@@ -1017,6 +1026,7 @@
   group: Industrial equipment / automation / materials / packaging
   lca_evidence: unconfirmed
   careers_url: https://www.3m.com/3M/en_US/careers-us/
+  ats: {type: "workday", url: "https://3m.wd1.myworkdayjobs.com/Search"}
 - id: 198
   name: Emerson
   group: Industrial equipment / automation / materials / packaging
@@ -1092,6 +1102,7 @@
   group: Industrial equipment / automation / materials / packaging
   lca_evidence: unconfirmed
   careers_url: https://www.deere.com/en/our-company/careers/
+  ats: {type: "workday", url: "https://johndeere.wd5.myworkdayjobs.com/johndeere"}
 - id: 212
   name: CNH Industrial
   group: Industrial equipment / automation / materials / packaging
@@ -1142,6 +1153,7 @@
   group: Industrial equipment / automation / materials / packaging
   lca_evidence: unconfirmed
   careers_url: https://careers.carrier.com/
+  ats: {type: "workday", url: "https://carrier.wd5.myworkdayjobs.com/jobs"}
 - id: 222
   name: Johnson Controls
   group: Industrial equipment / automation / materials / packaging
@@ -1268,6 +1280,7 @@
   group: Industrial equipment / automation / materials / packaging
   lca_evidence: unconfirmed
   careers_url: https://www.corning.com/worldwide/en/careers.html
+  ats: {type: "workday", url: "https://corning.wd1.myworkdayjobs.com/CorningCareers"}
 - id: 247
   name: Owens Corning
   group: Industrial equipment / automation / materials / packaging
