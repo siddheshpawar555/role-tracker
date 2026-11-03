@@ -43,6 +43,31 @@ _NON_US = re.compile(
     re.I,
 )
 _GEORGIA_COUNTRY = re.compile(r"\b(tbilisi|georgia \(country\))\b", re.I)
+_NON_US_MORE = re.compile(
+    r"\b(costa rica|viet nam|puerto rico_|dominican republic|honduras|guatemala|el salvador|panama|uruguay|"
+    r"hong kong|macau|sri lanka|pakistan|bangladesh|lithuania|latvia|estonia|greece|luxembourg|"
+    r"nuevo le[oó]n|guanajuato|san luis potos[ií]|baja california|coahuila|sonora|jalisco|puebla|"
+    r"queensland|new south wales|victoria, au|ranjangaon|noida|gurgaon|gurugram|mumbai|ahmedabad|"
+    r"barcelona|madrid|milan|turin|torino|munich|m[uü]nchen|stuttgart|paris|lyon|krak[oó]w|wroc[lł]aw|"
+    r"prague|brno|budapest|bucharest|timisoara|istanbul|dublin|cork|galway|limerick|shannon|"
+    r"wuxi|tianjin|chongqing|guangzhou|dalian|nanjing|hangzhou|xi'?an|chengdu|kunshan|"
+    r"bangkok|rayong|chonburi|kuala lumpur|johor|batam|hanoi|ho chi minh|manila|cebu|"
+    r"osaka|nagoya|yokohama|kyoto|daegu|busan|incheon|ulsan|taipei|hsinchu|taichung|tainan|kaohsiung|"
+    r"sydney|melbourne|brisbane|adelaide|perth, wa|auckland|"
+    r"vancouver|calgary|edmonton|winnipeg|ottawa|mississauga|brampton|guelph|windsor, on|"
+    r"s[aã]o paulo|campinas|curitiba|buenos aires|santiago|bogot[aá]|lima)\b",
+    re.I,
+)
+_ISO3_NON_US = re.compile(
+    r"\b(GBR|IRL|DEU|FRA|ITA|ESP|PRT|NLD|BEL|CHE|AUT|POL|CZE|SVK|HUN|ROU|SWE|NOR|DNK|FIN|"
+    r"MEX|CAN|BRA|ARG|CRI|CHN|IND|JPN|KOR|TWN|SGP|MYS|THA|VNM|PHL|IDN|AUS|NZL|ISR|TUR|ZAF|"
+    r"ARE|SAU|DOM|HND|SRB|HRV|BGR|LTU|MAR|TUN|EGY)\b"
+)
+# "City, ST, CC, zip" (SuccessFactors) / "City, CC" : a trailing 2-letter code that isn't a US state is a country
+_TRAILING_CODES = re.compile(r",\s*([A-Z]{2})(?:\s*,\s*([A-Z]{2}))?(?:\s*,\s*[\w -]{3,10})?\s*$")
+# "Wilmington-MA", "US-MI-Auburn Hills"
+_DASH_STATE = re.compile(r"[A-Za-z]-(" + "|".join(US_STATES) + r")\b")
+_US_ZIP = re.compile(r",\s*[A-Z]{2}\s*,?\s*\d{5}(?:-\d{4})?\b")
 
 
 def is_us_location(text: str | None) -> bool | None:
@@ -52,10 +77,23 @@ def is_us_location(text: str | None) -> bool | None:
     t = text.strip()
     if _GEORGIA_COUNTRY.search(t):
         return False
-    us = bool(_US_WORDS.search(t) or _US_CODE.search(t) or re.search(r"\bGeorgia\b", t))
+    t = re.sub(r"\s*\+\d+ more.*$", "", t)  # "Presov, SK, 08001 +2 more…"
+    m = re.match(r"^([A-Z]{2})-[A-Z]{2,3}-", t)  # RTX style "US-MA-ANDOVER-…", "CA-ON-MIDLAND-…"
+    if m:
+        return m.group(1) == "US"
+    m = _TRAILING_CODES.search(t)
+    if m:
+        last = m.group(2) or m.group(1)
+        if last == "US":
+            return True
+        if m.group(2) and m.group(1) not in ("US",):
+            return False  # "Stuttgart, BW, DE": state/province then country
+        if last not in US_STATES:
+            return False  # "Lublin, PL", "Kunshan, CN"
+    us = bool(_US_WORDS.search(t) or _US_CODE.search(t) or _DASH_STATE.search(t) or re.search(r"\bGeorgia\b", t))
     if us:
         return True
-    if _NON_US.search(t):
+    if _NON_US.search(t) or _NON_US_MORE.search(t) or _ISO3_NON_US.search(t):
         return False
     # "3 Locations", "Multiple Locations", "Remote" etc.
     return None

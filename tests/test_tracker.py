@@ -54,6 +54,10 @@ def test_excluded(title):
         ("United States - Remote", True), ("West Point, Georgia", True), ("Indianapolis, IN, USA", True),
         ("Monterrey, Mexico", False), ("Bangalore, India", False), ("Toronto, ON, Canada", False),
         ("Shanghai", False), ("3 Locations", None), ("", None),
+        ("Lublin, PL", False), ("Apodaca, Nuevo Leon, MX, 25350", False), ("Kunshan, CN, 215312", False),
+        ("Stuttgart, BW, DE, 70173", False), ("Auburn Hills, MI, US, 48326", True), ("Yokohama, 14, JP, 223-0057", False),
+        ("GBR - Ilfracombe - Cytiva", False), ("Stamullen, Co. Meath, IRL", False), ("Costa Rica - Coyol", False),
+        ("Bagenalstown, IE", False), ("Wilmington-MA (Jonspin)", True), ("Remote", None), ("Dover, DE", True), ("CA-ON-MIDLAND-450 ~ 450 Leitz Rd", False), ("US-MA-ANDOVER-AR1 ~ 358 Lowell St", True), ("Presov, SK, 08001 +2 more…", False),
     ],
 )
 def test_us(loc, expected):
@@ -96,7 +100,13 @@ def test_workday_adapter(monkeypatch):
     calls = []
 
     def fake_post(url, json=None, **kw):
+        if json["limit"] == 1:  # facet probe
+            return FakeResp({"total": 0, "jobPostings": [], "facets": [
+                {"facetParameter": "locationMainGroup", "values": [
+                    {"facetParameter": "locationCountry", "descriptor": "Country", "values": [
+                        {"descriptor": "Germany", "id": "de1"}, {"descriptor": "United States of America", "id": "us1"}]}]}]})
         calls.append(json)
+        assert json["appliedFacets"] == {"locationCountry": ["us1"]}
         if json["offset"] == 0:
             posts = [{"title": f"Process Engineer {i}", "externalPath": f"/job/Austin-TX/Process-Engineer_R{i}",
                       "locationsText": "Austin, TX", "postedOn": "Posted Today"} for i in range(20)]

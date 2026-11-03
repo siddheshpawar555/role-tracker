@@ -10,6 +10,11 @@ on:
         description: "Optional: comma-separated company ids to check (blank = all)"
         required: false
         default: ""
+      rebaseline:
+        description: "Treat roles found this run as already-open (not new)"
+        type: boolean
+        required: false
+        default: false
 
 permissions:
   contents: write
@@ -38,12 +43,14 @@ jobs:
           python -m playwright install --with-deps chromium
 
       - name: Check careers sites
+        env:
+          ONLY: ${{ github.event.inputs.only }}
+          REBASELINE: ${{ github.event.inputs.rebaseline }}
         run: |
-          if [ -n "${{ github.event.inputs.only }}" ]; then
-            python -m tracker run --only "${{ github.event.inputs.only }}"
-          else
-            python -m tracker run
-          fi
+          ARGS=""
+          if [ -n "$ONLY" ]; then ARGS="$ARGS --only $ONLY"; fi
+          if [ "$REBASELINE" = "true" ]; then ARGS="$ARGS --rebaseline"; fi
+          python -m tracker run $ARGS
 
       - name: Save role history
         run: |

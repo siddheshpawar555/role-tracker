@@ -147,6 +147,17 @@ def cmd_run(args) -> int:
     run_ts = now_iso()
     results: dict[int, dict] = {}
     start = time.time()
+    # drop stored roles that the current rules no longer accept (e.g. location rules got stricter)
+    dropped = [k for k, j in store.jobs.items()
+               if is_us_location(j.get("location")) is False or not matcher.match(j.get("title", ""))]
+    for k in dropped:
+        del store.jobs[k]
+    if dropped:
+        print(f"Removed {len(dropped)} stored roles that no longer match the rules.", flush=True)
+    if args.rebaseline:
+        # treat everything found this run as already-open (used after changing how sites are read)
+        for c in store.companies.values():
+            c["baseline_done"] = False
     budget = args.budget_minutes * 60
     runner.stop_at = start + budget * 0.65
 
@@ -250,12 +261,21 @@ def main() -> int:
     r.add_argument("--only", help="comma-separated company ids")
     r.add_argument("--workers", type=int, default=16)
     r.add_argument("--no-browser", action="store_true")
+    r.add_argument("--rebaseline", action="store_true",
+                   help="record roles found this run as baseline instead of new")
     r.add_argument("--budget-minutes", type=float, default=75,
                    help="stop starting new companies after this long (results so far are saved)")
     sub.add_parser("dashboard")
+    d = sub.add_parser("diagnose")
+    d.add_argument("--only", help="comma-separated company ids (default: all failing)")
+    d.add_argument("--workers", type=int, default=4)
     args = p.parse_args()
     if args.cmd == "run":
         return cmd_run(args)
+    if args.cmd == "diagnose":
+        from .diagnose import cmd_diagnose
+
+        return cmd_diagnose(args)
     store = Store(DATA / "state.json")
     build_dashboard(store.data, ROOT / "site")
     return 0

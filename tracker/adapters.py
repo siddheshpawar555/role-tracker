@@ -115,6 +115,42 @@ def parse_workday(url: str) -> dict | None:
     return None
 
 
+_US_NAMES = {"united states of america", "united states", "usa", "us"}
+
+
+def find_us_facet(facets) -> dict:
+    """Find the 'country = United States' filter in a Workday facet tree (names differ by tenant)."""
+    def walk(items, param=None):
+        for f in items or []:
+            p = f.get("facetParameter") or param
+            vals = f.get("values") or []
+            for v in vals:
+                if "values" in v:  # nested group (e.g. Locations -> Country)
+                    hit = walk([v], p)
+                    if hit:
+                        return hit
+                elif (v.get("descriptor") or "").strip().lower() in _US_NAMES and v.get("id"):
+                    return {f.get("facetParameter") or p: [v["id"]]}
+        return None
+
+    # prefer country-type facets over cities named "United States"
+    ranked = sorted(facets or [], key=lambda f: 0 if "country" in (f.get("facetParameter") or "").lower() else 1)
+    return walk(ranked) or {}
+
+
+def _workday_us_facet(api: str) -> dict:
+    try:
+        r = http.post(api, json={"appliedFacets": {}, "limit": 1, "offset": 0, "searchText": ""},
+                      headers={"Content-Type": "application/json", "Accept": "application/json"})
+        if r.status_code < 400:
+            return find_us_facet(r.json().get("facets"))
+    except http.DeadlineExceeded:
+        raise
+    except Exception:
+        pass
+    return {}
+
+
 def workday(cfg: dict, terms: list[str]) -> list[dict]:
     if "url" in cfg and "host" not in cfg:
         cfg = {**cfg, **(parse_workday(cfg["url"]) or {})}
@@ -122,12 +158,14 @@ def workday(cfg: dict, terms: list[str]) -> list[dict]:
     api = f"https://{host}/wday/cxs/{tenant}/{site}/jobs"
     base = f"https://{host}/recruiting/{tenant}/{site}" if cfg.get("myworkdaysite") else f"https://{host}/{site}"
 
+    facets = _workday_us_facet(api)
+
     def search(term: str) -> list[dict]:
         out, offset, total = [], 0, None
         for _ in range(MAX_PAGES_PER_TERM):
             r = http.post(
                 api,
-                json={"appliedFacets": {}, "limit": 20, "offset": offset, "searchText": term},
+                json={"appliedFacets": facets, "limit": 20, "offset": offset, "searchText": term},
                 headers={"Content-Type": "application/json", "Accept": "application/json"},
             )
             if r.status_code >= 400:
