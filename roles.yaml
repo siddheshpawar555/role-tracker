@@ -16,6 +16,8 @@ global_exclude:
   - '\btechnician\b'
   - '\btech\b(?!\s*-?\s*transfer)'
   - '\boperator\b'
+  - '\binstructor\b'
+  - 'do not apply|test req'
   - '\bassembler\b'
 
 # Keywords sent to career-site search boxes (for sites that need a search term).

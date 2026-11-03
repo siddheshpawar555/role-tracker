@@ -261,3 +261,32 @@ def test_avature_adapter(monkeypatch):
     assert jobs == [{"id": "498765", "title": "Process Engineer",
                      "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/Process-Engineer/498765",
                      "location": "Charlotte, North Carolina, United States", "posted": None}]
+
+
+def test_runner_resolves_unknown_workday_location(monkeypatch, tmp_path):
+    import tracker.__main__ as m
+    monkeypatch.setattr(m, "LOC_CACHE", tmp_path / "loc.json")
+    monkeypatch.setattr(m, "load_cache", lambda: {})
+    r = m.Runner(M, use_browser=False)
+    looked = []
+
+    def fake_loc(url):
+        looked.append(url)
+        return "Bray, Ireland" if "Bray" in url else "Evendale, United States of America"
+
+    monkeypatch.setattr(adapters, "workday_job_location", fake_loc)
+    raw = [
+        {"id": "1", "title": "Quality Engineer", "url": "https://g.wd5.myworkdayjobs.com/S/job/Bray/QE_1", "location": "Bray"},
+        {"id": "2", "title": "Quality Engineer", "url": "https://g.wd5.myworkdayjobs.com/S/job/Evendale/QE_2", "location": "Evendale"},
+        {"id": "3", "title": "Quality Engineer", "url": "https://g.wd5.myworkdayjobs.com/S/job/x/QE_3", "location": "Austin, TX"},
+    ]
+    out = r.filter(raw)
+    assert [j["id"] for j in out] == ["2", "3"] and out[0]["location"].endswith("United States of America")
+    assert len(looked) == 2  # Austin, TX needed no lookup
+    r.filter(raw)
+    assert len(looked) == 2  # cached
+
+
+def test_test_postings_excluded():
+    assert M.match("DO NOT APPLY - TEST REQ - Engineer III, Manufacturing Engineering") is None
+    assert M.match("NPI Instructor III") is None

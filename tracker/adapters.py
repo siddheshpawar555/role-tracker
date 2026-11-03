@@ -175,6 +175,24 @@ def _workday_us_facet(api: str) -> dict:
     return {}
 
 
+def workday_job_location(url: str) -> str | None:
+    """Look up one Workday posting's real location (with country) from its detail API.
+    Returns e.g. "Evendale, Ohio, United States of America" or None if unavailable."""
+    wd = parse_workday(url)
+    if not wd or "/job/" not in url:
+        return None
+    path = url.split(f"/{wd['site']}", 1)[1]
+    api = f"https://{wd['host']}/wday/cxs/{wd['tenant']}/{wd['site']}{path}"
+    r = http.get(api, headers={"Accept": "application/json"})
+    if r.status_code >= 400:
+        return None
+    info = (r.json() or {}).get("jobPostingInfo") or {}
+    country = (info.get("country") or {}).get("descriptor") or ""
+    locs = [info.get("location") or ""] + list(info.get("additionalLocations") or [])
+    text = "; ".join(x for x in locs if x)
+    return f"{text}, {country}" if country else (text or None)
+
+
 def workday(cfg: dict, terms: list[str]) -> list[dict]:
     if "url" in cfg and "host" not in cfg:
         cfg = {**cfg, **(parse_workday(cfg["url"]) or {})}
@@ -458,7 +476,7 @@ def phenom(cfg: dict, terms: list[str]) -> list[dict]:
             "ddoKey": "refineSearch", "sortBy": "Most recent", "subsearch": "", "from": start, "jobs": True,
             "counts": True, "all_fields": ["country", "state", "city", "category"], "size": 50,
             "clearAll": False, "jdsource": "facets", "isSliderEnable": False, "pageId": "page20",
-            "siteType": "external", "keywords": term, "global": True, "selected_fields": {"country": ["United States"]},
+            "siteType": "external", "keywords": term, "global": True, "selected_fields": {},
             "locationData": {}, "refNum": ref(),
         }
         r = http.post(f"https://{host}/widgets", json=body,

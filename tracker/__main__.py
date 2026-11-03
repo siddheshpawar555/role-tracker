@@ -27,6 +27,7 @@ from .store import Store, now_iso
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
 ATS_CACHE = DATA / "ats_cache.json"
+LOC_CACHE = DATA / "location_cache.json"
 REDISCOVER_AFTER_DAYS = 14
 COMPANY_LIMIT_SECS = 6 * 60          # phase 1 (plain HTTP) per company
 BROWSER_COMPANY_LIMIT_SECS = 150     # phase 2 (headless browser) per company
@@ -46,6 +47,8 @@ class Runner:
         self.matcher = matcher
         self.use_browser = use_browser
         self.cache = load_cache()
+        self.loc_cache: dict[str, str] = json.loads(LOC_CACHE.read_text()) if LOC_CACHE.exists() else {}
+        self.loc_used: set[str] = set()
         self.lock = threading.Lock()
         self.shared: dict[str, tuple] = {}  # same feed used by two companies -> scrape once
         self.deferred: list[dict] = []
@@ -95,15 +98,34 @@ class Runner:
             self.shared[key] = jobs
         return jobs
 
+    def resolve_location(self, j: dict) -> str:
+        """For Workday roles listed as just a city or 'N Locations', fetch the posting's country once."""
+        loc = j.get("location") or ""
+        if is_us_location(loc) is not None or "myworkday" not in j.get("url", ""):
+            return loc
+        key = j["url"]
+        if key not in self.loc_cache:
+            try:
+                found = adapters.workday_job_location(key)
+            except http.DeadlineExceeded:
+                return loc
+            except Exception:
+                found = None
+            with self.lock:
+                self.loc_cache[key] = found or ""
+        self.loc_used.add(key)
+        return self.loc_cache.get(key) or loc
+
     def filter(self, raw: list[dict]) -> list[dict]:
         out = []
         for j in raw:
             fam = self.matcher.match(j.get("title", ""))
             if not fam:
                 continue
-            if is_us_location(j.get("location")) is False:
+            loc = self.resolve_location(j)
+            if is_us_location(loc) is False:
                 continue
-            out.append({**j, "family": fam.name, "family_id": fam.id, "tier": fam.tier})
+            out.append({**j, "location": loc, "family": fam.name, "family_id": fam.id, "tier": fam.tier})
         return out
 
     def run_company(self, company: dict, browser=None) -> dict:
@@ -211,6 +233,12 @@ def cmd_run(args) -> int:
             finally:
                 browser.close()
 
+    # stored roles whose looked-up country turned out to be outside the US
+    for k, j in list(store.jobs.items()):
+        found = runner.loc_cache.get(j.get("url", ""))
+        if found and is_us_location(found) is False:
+            del store.jobs[k]
+
     new_total, ok, failed, new_roles = 0, 0, 0, []
     for cid, r in sorted(results.items()):
         c = r["company"]
@@ -234,6 +262,10 @@ def cmd_run(args) -> int:
     store.save()
     DATA.mkdir(exist_ok=True)
     ATS_CACHE.write_text(json.dumps(runner.cache, indent=1, sort_keys=True))
+    # keep lookups for postings seen this run (or still stored), drop the rest
+    keep = runner.loc_used | {j["url"] for j in store.jobs.values()}
+    LOC_CACHE.write_text(json.dumps({k: v for k, v in runner.loc_cache.items() if k in keep},
+                                    indent=0, sort_keys=True))
     build_dashboard(store.data, ROOT / "site")
     write_summary(run_ts, ok, failed, new_roles)
     print(f"\nDone in {(time.time() - start) / 60:.1f} min: {ok} companies OK, {failed} failed, "
