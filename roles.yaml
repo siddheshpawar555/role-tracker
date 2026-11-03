@@ -14,6 +14,7 @@ global_exclude:
   - '\bvice president\b'
   - '\bvp\b'
   - '\btechnician\b'
+  - '\btech\b(?!\s*-?\s*transfer)'
   - '\boperator\b'
   - '\bassembler\b'
 
