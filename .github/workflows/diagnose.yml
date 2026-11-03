@@ -1,4 +1,4 @@
-name: Diagnose failing companies
+name: Diagnose and verify
 
 on:
   workflow_dispatch:
@@ -7,6 +7,11 @@ on:
         description: "Optional: comma-separated company ids (blank = every failing company)"
         required: false
         default: ""
+      mode:
+        description: "diagnose = inspect failing sites; verify = fact-check stored roles"
+        type: choice
+        options: [diagnose, verify]
+        default: diagnose
 
 permissions:
   contents: write
@@ -29,15 +34,19 @@ jobs:
         run: |
           pip install -r requirements.txt
           python -m playwright install --with-deps chromium
-      - name: Diagnose
+      - name: Diagnose or verify
         env:
           ONLY: ${{ github.event.inputs.only }}
+          MODE: ${{ github.event.inputs.mode }}
         run: |
-          if [ -n "$ONLY" ]; then python -m tracker diagnose --only "$ONLY"; else python -m tracker diagnose; fi
+          if [ "$MODE" = "verify" ]; then python -m tracker verify | tee -a "$GITHUB_STEP_SUMMARY"
+          elif [ -n "$ONLY" ]; then python -m tracker diagnose --only "$ONLY"
+          else python -m tracker diagnose; fi
       - name: Save report
         run: |
           git config user.name "job-tracker-bot"
           git config user.email "job-tracker-bot@users.noreply.github.com"
-          git add data/diagnose.json
+          git add data/diagnose.json data/verify.json data/verify.md 2>/dev/null || true
+          git add data/
           git diff --cached --quiet || git commit -m "Diagnostics $(date -u +%Y-%m-%dT%H:%MZ)"
           git pull --rebase --autostash && git push

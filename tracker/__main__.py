@@ -269,7 +269,15 @@ def main() -> int:
     d = sub.add_parser("diagnose")
     d.add_argument("--only", help="comma-separated company ids (default: all failing)")
     d.add_argument("--workers", type=int, default=4)
+    v = sub.add_parser("verify")
+    v.add_argument("--sample", type=int, default=40)
+    v.add_argument("--recall", type=int, default=8)
+    v.add_argument("--seed", type=int, default=7)
     args = p.parse_args()
+    if args.cmd == "verify":
+        from .verify import cmd_verify
+
+        return cmd_verify(args)
     if args.cmd == "run":
         return cmd_run(args)
     if args.cmd == "diagnose":
