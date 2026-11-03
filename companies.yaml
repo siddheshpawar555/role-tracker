@@ -977,7 +977,6 @@
   group: Industrial equipment / automation / materials / packaging
   lca_evidence: sector
   careers_url: https://www.eaton.com/us/en-us/company/careers.html
-  ats: {type: "workday", url: "https://eaton.wd1.myworkdayjobs.com/eaton_careers"}
 - id: 189
   name: Honeywell
   group: Industrial equipment / automation / materials / packaging
@@ -989,7 +988,6 @@
   group: Industrial equipment / automation / materials / packaging
   lca_evidence: sector
   careers_url: https://www.parker.com/us/en/careers.html
-  ats: {type: "workday", url: "https://parker.wd5.myworkdayjobs.com/Parker_Careers"}
 - id: 191
   name: Rockwell Automation
   group: Industrial equipment / automation / materials / packaging
@@ -1102,7 +1100,6 @@
   group: Industrial equipment / automation / materials / packaging
   lca_evidence: unconfirmed
   careers_url: https://www.deere.com/en/our-company/careers/
-  ats: {type: "workday", url: "https://johndeere.wd5.myworkdayjobs.com/johndeere"}
 - id: 212
   name: CNH Industrial
   group: Industrial equipment / automation / materials / packaging
@@ -1153,7 +1150,6 @@
   group: Industrial equipment / automation / materials / packaging
   lca_evidence: unconfirmed
   careers_url: https://careers.carrier.com/
-  ats: {type: "workday", url: "https://carrier.wd5.myworkdayjobs.com/jobs"}
 - id: 222
   name: Johnson Controls
   group: Industrial equipment / automation / materials / packaging
@@ -1280,7 +1276,6 @@
   group: Industrial equipment / automation / materials / packaging
   lca_evidence: unconfirmed
   careers_url: https://www.corning.com/worldwide/en/careers.html
-  ats: {type: "workday", url: "https://corning.wd1.myworkdayjobs.com/CorningCareers"}
 - id: 247
   name: Owens Corning
   group: Industrial equipment / automation / materials / packaging
