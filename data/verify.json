@@ -1,0 +1,637 @@
+{
+ "accuracy": [
+  {
+   "company": "L3Harris Technologies",
+   "title": "Lead, Composite Manufacturing Engineer 1",
+   "location": "Huntsville, AL",
+   "url": "https://careers.l3harris.com/en/job/huntsville/lead-composite-manufacturing-engineer-1/4832/101624039440",
+   "status": 200,
+   "title_ok": true,
+   "live": true
+  },
+  {
+   "company": "Celestica",
+   "title": "NPI Soldering and Rework Engineer",
+   "location": "Oradea, BH, RO",
+   "url": "https://careers.celestica.com/job/Oradea-NPI-Soldering-and-Rework-Engineer-BH/1445940033/",
+   "status": 200,
+   "title_ok": true,
+   "live": true
+  },
+  {
+   "company": "Ingersoll Rand",
+   "title": "Industrial Engineer",
+   "location": "Simmern, DE, 55469",
+   "url": "https://careers.irco.com/job/Simmern-Industrial-Engineer-55469/1434716400/",
+   "status": 200,
+   "title_ok": true,
+   "live": true
+  },
+  {
+   "company": "Hyundai Motor Manufacturing Alabama",
+   "title": "General Assembly Process Engineering Specialist",
+   "location": "Ellabell, GA, US",
+   "url": "https://careers-americas.hyundai.com/hmgma/job/Ellabell-General-Assembly-Process-Engineering-Specialist-GA-31308/1437766200/",
+   "status": 200,
+   "title_ok": true,
+   "live": true
+  },
+  {
+   "company": "NXP Semiconductors",
+   "title": "Principal/Sr Principal Digital Validation Engineer",
+   "location": "Austin (Oakhill, Office)",
+   "url": "https://nxp.wd3.myworkdayjobs.com/careers/job/Austin-Oakhill-Office/Digital-Validation-Engineer_R-10065718",
+   "status": 200,
+   "live_title": "Principal/Sr Principal Digital Validation Engineer",
+   "live_location": "Austin (Oakhill, Office)",
+   "live_posted": "2026-10-19",
+   "live_country": "United States of America",
+   "title_ok": true,
+   "live": true
+  },
+  {
+   "company": "Becton, Dickinson and Company (BD)",
+   "title": "Lean Continuous Improvement Manager",
+   "location": "USA IN - Plainfield",
+   "url": "https://bdx.wd1.myworkdayjobs.com/EXTERNAL_CAREER_SITE_USA/job/USA-IN---Plainfield/Lean-Continuous-Improvement-Manager_R-557103-1",
+   "status": 200,
+   "live_title": "Lean Continuous Improvement Manager",
+   "live_location": "USA IN - Plainfield",
+   "live_posted": "2026-10-12",
+   "live_country": "United States of America",
+   "title_ok": true,
+   "live": true
+  },
+  {
+   "company": "Jabil",
+   "title": "Process Engineer",
+   "location": "Kulim",
+   "url": "https://jabil.wd5.myworkdayjobs.com/Jabil_Careers/job/Kulim/Process-Engineer_J2446022",
+   "status": 200,
+   "live_title": "Process Engineer",
+   "live_location": "Kulim",
+   "live_posted": "2026-09-15",
+   "live_country": "Malaysia",
+   "title_ok": true,
+   "live": true
+  },
+  {
+   "company": "Magna International",
+   "title": "Quality Engineer",
+   "location": "Moore, South Carolina, US",
+   "url": "https://wd3.myworkdaysite.com/recruiting/magna/Magna/job/Moore-South-Carolina-US/Quality-Engineer_R00234269",
+   "status": 200,
+   "live_title": "Quality Engineer",
+   "live_location": "Moore, South Carolina, US",
+   "live_posted": "2026-10-18",
+   "live_country": "United States of America",
+   "title_ok": true,
+   "live": true
+  },
+  {
+   "company": "ResMed",
+   "title": "Engineer II, Manufacturing Process Engineering",
+   "location": "MY JB Senai",
+   "url": "https://resmed.wd3.myworkdayjobs.com/Resmed_External_Careers/job/MY-JB-Senai/Engineer-II--Manufacturing-Process-Engineering_JR_054238",
+   "status": 200,
+   "live_title": "Engineer II, Manufacturing Process Engineering",
+   "live_location": "MY JB Senai",
+   "live_posted": "2026-10-05",
+   "live_country": "Malaysia",
+   "title_ok": true,
+   "live": true
+  },
+  {
+   "company": "PCI Pharma Services",
+   "title": "Process Engineer I",
+   "location": "Philadelphia, PA, USA",
+   "url": "https://pciservices.wd1.myworkdayjobs.com/External/job/Philadelphia-PA-USA/Process-Engineer-I_JR119908-1",
+   "status": 200,
+   "live_title": "Process Engineer I",
+   "live_location": "Philadelphia, PA, USA",
+   "live_posted": "2026-10-21",
+   "live_country": "United States of America",
+   "title_ok": true,
+   "live": true
+  },
+  {
+   "company": "Ford Motor Company",
+   "title": "Process Engineering Specialist (LAP)",
+   "location": "Louisville, KY",
+   "url": "https://www.careers.ford.com/en/job/louisville/process-engineering-specialist-lap/48560/102358420416",
+   "status": 200,
+   "title_ok": true,
+   "live": true
+  },
+  {
+   "company": "GE Vernova",
+   "title": "Senior Project Engineering Manager",
+   "location": "Barcelona",
+   "url": "https://gevernova.wd5.myworkdayjobs.com/Vernova_ExternalSite/job/Barcelona/Project-Engineering-Manager_R5046693-2",
+   "status": 200,
+   "live_title": "Senior Project Engineering Manager",
+   "live_location": "Barcelona",
+   "live_posted": "2026-10-22",
+   "live_country": "Spain",
+   "title_ok": true,
+   "live": true
+  },
+  {
+   "company": "Takeda Pharmaceuticals",
+   "title": "Operational Excellence Manager",
+   "location": "",
+   "url": "https://jobs.takeda.com/job/lodz/operational-excellence-manager/1113/101877529456",
+   "status": 200,
+   "title_ok": true,
+   "live": true
+  },
+  {
+   "company": "Advanced Micro Devices (AMD)",
+   "title": "Senior PDE, Test and Product Engineering, Client APU",
+   "location": "Austin, Texas",
+   "url": "https://careers.amd.com/jobs/90209",
+   "status": 200,
+   "title_ok": true,
+   "live": false
+  },
+  {
+   "company": "ZF Group",
+   "title": "Process Engineer for Special Processes",
+   "location": "Pan\u010devo, VO, RS, 26000",
+   "url": "https://jobs.zf.com/job/Pan%C4%8Devo-Process-Engineer-for-Special-Processes-VO-26000/1446600733/",
+   "status": 200,
+   "title_ok": true,
+   "live": true
+  },
+  {
+   "company": "Regal Rexnord",
+   "title": "Supplier Quality Engineer",
+   "location": "",
+   "url": "https://careers.regalrexnord.com/en/jobs/r26_04359/supplier-quality-engineer/",
+   "status": 200,
+   "title_ok": true,
+   "live": true
+  },
+  {
+   "company": "NXP Semiconductors",
+   "title": "Senior Validation Engineer",
+   "location": "Noida",
+   "url": "https://nxp.wd3.myworkdayjobs.com/careers/job/Noida/Senior-Validation-Engineer_R-10062791",
+   "status": 200,
+   "live_title": "Senior Validation Engineer",
+   "live_location": "Noida",
+   "live_posted": "2026-07-10",
+   "live_country": "India",
+   "title_ok": true,
+   "live": true
+  },
+  {
+   "company": "RTX",
+   "title": "Manufacturing Engineer II",
+   "location": "US-RI-PORTSMOUTH-PS2 ~ 1847 W Main Rd ~ NIMITZ SOUTH BLDG",
+   "url": "https://globalhr.wd5.myworkdayjobs.com/REC_RTX_Ext_Gateway/job/US-RI-PORTSMOUTH-PS2--1847-W-Main-Rd--NIMITZ-SOUTH-BLDG/Manufacturing-Engineer-II_01875407",
+   "status": 200,
+   "live_title": "Manufacturing Engineer II",
+   "live_location": "US-RI-PORTSMOUTH-PS2 ~ 1847 W Main Rd ~ NIMITZ SOUTH BLDG",
+   "live_posted": "2026-09-28",
+   "live_country": "United States of America",
+   "title_ok": true,
+   "live": true
+  },
+  {
+   "company": "Advanced Micro Devices (AMD)",
+   "title": "Fellow, Server System Memory Validation Lead",
+   "location": "Austin, Texas",
+   "url": "https://careers.amd.com/jobs/93481",
+   "status": 200,
+   "title_ok": true,
+   "live": false
+  },
+  {
+   "company": "Abbott",
+   "title": "Senior Manufacturing Process Engineer",
+   "location": "United States - California - Temecula",
+   "url": "https://abbott.wd5.myworkdayjobs.com/abbottcareers/job/United-States---California---Temecula/Senior-Manufacturing-Process-Engineer_31161111-1",
+   "status": 200,
+   "live_title": "Senior Manufacturing Process Engineer",
+   "live_location": "United States - California - Temecula",
+   "live_posted": "2026-09-10",
+   "live_country": "United States of America",
+   "title_ok": true,
+   "live": true
+  },
+  {
+   "company": "Chart Industries",
+   "title": "Product Engineer",
+   "location": "Canton, GA, United States, 30107",
+   "url": "https://jobs.chartindustries.com/job/Canton-Product-Engineer-GA-30107/1434921600/",
+   "status": 200,
+   "title_ok": true,
+   "live": true
+  },
+  {
+   "company": "PCI Pharma Services",
+   "title": "Manager, Continuous Improvement, Global OpEx",
+   "location": "Rockford, IL, USA",
+   "url": "https://pciservices.wd1.myworkdayjobs.com/External/job/Rockford-IL-USA/Manager--Continuous-Improvement--Global-OpEx_JR120290",
+   "status": 200,
+   "live_title": "Manager, Continuous Improvement, Global OpEx",
+   "live_location": "Rockford, IL, USA",
+   "live_posted": "2026-10-30",
+   "live_country": "United States of America",
+   "title_ok": true,
+   "live": true
+  },
+  {
+   "company": "Honda",
+   "title": "Industrial Engineer",
+   "location": "6430 Ballinger Road, Greensboro, North Carolina, United States",
+   "url": "https://careers.honda.com/us/en/job/11809",
+   "status": 200,
+   "title_ok": true,
+   "live": false
+  },
+  {
+   "company": "Jabil",
+   "title": "Sr Molding Quality Engineer",
+   "location": "Baja",
+   "url": "https://jabil.wd5.myworkdayjobs.com/Jabil_Careers/job/Baja/Sr-Molding-Quality-Engineer_J2469871",
+   "status": 200,
+   "live_title": "Sr Molding Quality Engineer",
+   "live_location": "Baja",
+   "live_posted": "2026-10-27",
+   "live_country": "Mexico",
+   "title_ok": true,
+   "live": true
+  },
+  {
+   "company": "GE Vernova",
+   "title": "Controls Quality Engineer - Operability",
+   "location": "3 Locations",
+   "url": "https://gevernova.wd5.myworkdayjobs.com/Vernova_ExternalSite/job/Greenville/Controls-Quality-Engineer---Operability_R5054375",
+   "status": 200,
+   "live_title": "Controls Quality Engineer - Operability",
+   "live_location": "Greenville",
+   "live_posted": "2026-10-23",
+   "live_country": "United States of America",
+   "title_ok": true,
+   "live": true
+  },
+  {
+   "company": "Micron Technology",
+   "title": "Senior Dry Etch Process Engineer",
+   "location": "Boise, ID - ID1",
+   "url": "https://micron.wd1.myworkdayjobs.com/External/job/Boise-ID---ID1/Senior-Dry-Etch-Process-Engineer_JR101256",
+   "status": 200,
+   "live_title": "Senior Dry Etch Process Engineer",
+   "live_location": "Boise, ID - ID1",
+   "live_posted": "2026-10-23",
+   "live_country": "United States of America",
+   "title_ok": true,
+   "live": true
+  },
+  {
+   "company": "Johnson & Johnson MedTech",
+   "title": "Manager, NPI Engineering - Circulatory Restoration",
+   "location": "Santa Clara, California, United States of America",
+   "url": "https://jj.wd5.myworkdayjobs.com/JJ/job/Santa-Clara-California-United-States-of-America/Manager--NPI-Engineering---Circulatory-Restoration_R-107672-1",
+   "status": 200,
+   "live_title": "Manager, NPI Engineering - Circulatory Restoration",
+   "live_location": "Santa Clara, California, United States of America",
+   "live_posted": "2026-11-02",
+   "live_country": "United States of America",
+   "title_ok": true,
+   "live": true
+  },
+  {
+   "company": "Penumbra",
+   "title": "Industrial Engineer II",
+   "location": "Cartago, Costa Rica",
+   "url": "https://jobs.lever.co/penumbrainc/195fb576-9e74-4f6b-a76a-22a88245353c",
+   "status": 200,
+   "title_ok": true,
+   "live": true
+  },
+  {
+   "company": "Flowserve",
+   "title": "Senior Nuclear Quality Engineer",
+   "location": "Charlotte, North Carolina US",
+   "url": "https://flowserve.wd1.myworkdayjobs.com/applied/job/Charlotte-North-Carolina-US/Senior-Nuclear-Quality-Engineer_R-20954",
+   "status": 200,
+   "live_title": "Senior Nuclear Quality Engineer",
+   "live_location": "Charlotte, North Carolina US",
+   "live_posted": "2026-09-09",
+   "live_country": "United States of America",
+   "title_ok": true,
+   "live": true
+  },
+  {
+   "company": "Merck & Co.",
+   "title": "Site Budgets & Payments Operational Excellence Regional Lead",
+   "location": "4 Locations",
+   "url": "https://msd.wd5.myworkdayjobs.com/SearchJobs/job/USA---Pennsylvania---North-Wales-Upper-Gwynedd/Site-Budgets---Payments-Operational-Excellence-Regional-Lead_R423683-1",
+   "status": 200,
+   "live_title": "Site Budgets & Payments Operational Excellence Regional Lead",
+   "live_location": "USA - Pennsylvania - North Wales (Upper Gwynedd)",
+   "live_posted": "2026-10-30",
+   "live_country": "United States of America",
+   "title_ok": true,
+   "live": true
+  },
+  {
+   "company": "GE Vernova",
+   "title": "Compliance Project Engineer",
+   "location": "Veresegyhaz",
+   "url": "https://gevernova.wd5.myworkdayjobs.com/Vernova_ExternalSite/job/Veresegyhaz/Compliance-Project-Engineer_R5053601",
+   "status": 200,
+   "live_title": "Compliance Project Engineer",
+   "live_location": "Veresegyhaz",
+   "live_posted": "2026-09-25",
+   "live_country": "Hungary",
+   "title_ok": true,
+   "live": true
+  },
+  {
+   "company": "Hyundai Motor Manufacturing Alabama",
+   "title": "Quality Assurance Engineering Specialist  -  Wiring/Restraints",
+   "location": "Ellabell, GA, US",
+   "url": "https://careers-americas.hyundai.com/hmgma/job/Ellabell-Quality-Assurance-Engineering-Specialist-WiringRestraints-GA-31308/1419131600/",
+   "status": 200,
+   "title_ok": true,
+   "live": true
+  },
+  {
+   "company": "Abbott",
+   "title": "Validation Engineer - Sturgis, MI Plant",
+   "location": "United States - Michigan - Sturgis",
+   "url": "https://abbott.wd5.myworkdayjobs.com/abbottcareers/job/United-States---Michigan---Sturgis/Validation-Engineer---Sturgis--MI-Plant_31165793-1",
+   "status": 200,
+   "live_title": "Validation Engineer - Sturgis, MI Plant",
+   "live_location": "United States - Michigan - Sturgis",
+   "live_posted": "2026-10-28",
+   "live_country": "United States of America",
+   "title_ok": true,
+   "live": true
+  },
+  {
+   "company": "Flex",
+   "title": "Quality Engineer",
+   "location": "USA, CA, Milpitas",
+   "url": "https://flextronics.wd1.myworkdayjobs.com/Careers/job/USA-CA-Milpitas/Quality-Engineer_WD232307",
+   "status": 200,
+   "live_title": "Quality Engineer",
+   "live_location": "USA, CA, Milpitas",
+   "live_posted": "2026-10-27",
+   "live_country": "United States of America",
+   "title_ok": true,
+   "live": true
+  },
+  {
+   "company": "Collins Aerospace",
+   "title": "Sr Test & Validation Engineer (2nd Shift)",
+   "location": "US-MA-ANDOVER-AN3 ~ 354 Lowell St ~ AN3 SUFFOLK BLDG",
+   "url": "https://globalhr.wd5.myworkdayjobs.com/REC_RTX_Ext_Gateway/job/US-MA-ANDOVER-AN3--354-Lowell-St--AN3-SUFFOLK-BLDG/Sr-Test---Validation-Engineer--2nd-Shift-_01885072",
+   "status": 200,
+   "live_title": "Sr Test & Validation Engineer (2nd Shift)",
+   "live_location": "US-MA-ANDOVER-AN3 ~ 354 Lowell St ~ AN3 SUFFOLK BLDG",
+   "live_posted": "2026-10-29",
+   "live_country": "United States of America",
+   "title_ok": true,
+   "live": true
+  },
+  {
+   "company": "BWX Technologies",
+   "title": "Manufacturing Engineer - Machining",
+   "location": "Cambridge, ON, CA",
+   "url": "https://careers.bwxt.com/job/Cambridge-Manufacturing-Engineer-Machining-ON/1410957600/",
+   "status": 200,
+   "title_ok": true,
+   "live": true
+  },
+  {
+   "company": "Celestica",
+   "title": "Senior Manager, DFM and SMT Engineering",
+   "location": "Richardson, TX, US",
+   "url": "https://careers.celestica.com/job/Richardson-Senior-Manager%2C-DFM-and-SMT-Engineering-TX-75080/1433631833/",
+   "status": 200,
+   "title_ok": true,
+   "live": true
+  },
+  {
+   "company": "Stryker",
+   "title": "Staff Design Quality Engineer (Mechanical)",
+   "location": "Portage, Michigan",
+   "url": "https://stryker.wd1.myworkdayjobs.com/StrykerCareers/job/Portage-Michigan/Staff-Design-Quality-Engineer--Mechanical-_R572649",
+   "status": 200,
+   "live_title": "Staff Design Quality Engineer (Mechanical)",
+   "live_location": "Portage, Michigan",
+   "live_posted": "2026-09-08",
+   "live_country": "United States of America",
+   "title_ok": true,
+   "live": true
+  },
+  {
+   "company": "Jabil",
+   "title": "Senior Moulding Process Engineer",
+   "location": "Bray",
+   "url": "https://jabil.wd5.myworkdayjobs.com/Jabil_Careers/job/Bray/Senior-Moulding-Process-Engineer_J2468186",
+   "status": 200,
+   "live_title": "Senior Moulding Process Engineer",
+   "live_location": "Bray",
+   "live_posted": "2026-10-14",
+   "live_country": "Ireland",
+   "title_ok": true,
+   "live": true
+  },
+  {
+   "company": "Johnson & Johnson MedTech",
+   "title": "Manufacturing Engineer (Grecia, Costa Rica)",
+   "location": "Grecia, Costa Rica",
+   "url": "https://jj.wd5.myworkdayjobs.com/JJ/job/Grecia-Costa-Rica/Manufacturing-Engineer--Grecia--Costa-Rica-_R-089554-1",
+   "status": 200,
+   "live_title": "Manufacturing Engineer (Grecia, Costa Rica)",
+   "live_location": "Grecia, Costa Rica",
+   "live_posted": "2026-11-02",
+   "live_country": "Costa Rica",
+   "title_ok": true,
+   "live": true
+  }
+ ],
+ "coverage": [
+  {
+   "company": "Flex",
+   "us_facet": true,
+   "us_postings": 513,
+   "downloaded": 513,
+   "should_match": 48,
+   "tracked": 39,
+   "missed": [
+    {
+     "id": "WD231430",
+     "title": "Quality Engineer",
+     "url": "https://flextronics.wd1.myworkdayjobs.com/Careers/job/USA-CA-Milpitas/Quality-Engineer_WD231430",
+     "location": "USA, CA, Milpitas"
+    },
+    {
+     "id": "WD232358",
+     "title": "Quality Engineer",
+     "url": "https://flextronics.wd1.myworkdayjobs.com/Careers/job/USA-TX-Austin/Quality-Engineer_WD232358",
+     "location": "USA, TX, Austin"
+    },
+    {
+     "id": "WD231407-1",
+     "title": "Sr, Manufacturing Engineer",
+     "url": "https://flextronics.wd1.myworkdayjobs.com/Careers/job/USA-MA-Littleton/Sr--Manufacturing-Engineer_WD231407-1",
+     "location": "USA, MA, Littleton"
+    },
+    {
+     "id": "WD230528",
+     "title": "Process Engineering Tech",
+     "url": "https://flextronics.wd1.myworkdayjobs.com/Careers/job/USA-TX-Austin/Process-Engineering-Tech_WD230528",
+     "location": "USA, TX, Austin"
+    },
+    {
+     "id": "WD228494-1",
+     "title": "Process Engineer - SMT",
+     "url": "https://flextronics.wd1.myworkdayjobs.com/Careers/job/USA-TX-Austin/Process-Engineer_WD228494-1",
+     "location": "USA, TX, Austin"
+    },
+    {
+     "id": "WD229481",
+     "title": "Process Engineer - 2nd Shift (10%)",
+     "url": "https://flextronics.wd1.myworkdayjobs.com/Careers/job/USA-TX-Austin/Process-Engineer---2nd-Shift--10--_WD229481",
+     "location": "USA, TX, Austin"
+    },
+    {
+     "id": "WD227568-1",
+     "title": "Project Engineer",
+     "url": "https://flextronics.wd1.myworkdayjobs.com/Careers/job/USA-VA-Henrico/Project-Engineer_WD227568-1",
+     "location": "USA, VA, Henrico"
+    },
+    {
+     "id": "WD227569-1",
+     "title": "Project Engineer",
+     "url": "https://flextronics.wd1.myworkdayjobs.com/Careers/job/USA-VA-Henrico/Project-Engineer_WD227569-1",
+     "location": "USA, VA, Henrico"
+    },
+    {
+     "id": "WD226350-1",
+     "title": "Process Engineer",
+     "url": "https://flextronics.wd1.myworkdayjobs.com/Careers/job/USA-CA-Fontana/Process-Engineer_WD226350-1",
+     "location": "USA, CA, Fontana"
+    }
+   ],
+   "missed_count": 9,
+   "tracked_not_in_us_list": 0
+  },
+  {
+   "company": "Johnson Controls",
+   "us_facet": false,
+   "us_postings": 2782,
+   "downloaded": 2000,
+   "should_match": 25,
+   "tracked": 27,
+   "missed": [
+    {
+     "id": "WD30282661",
+     "title": "Senior Product Engineer",
+     "url": "https://jci.wd5.myworkdayjobs.com/JCI/job/New-Freedom-Pennsylvania-United-States-of-America/Senior-Product-Engineer_WD30282661",
+     "location": "New Freedom-Pennsylvania-United States of America"
+    },
+    {
+     "id": "WD30281729",
+     "title": "Product Engineer II",
+     "url": "https://jci.wd5.myworkdayjobs.com/JCI/job/York-Pennsylvania-United-States-of-America/Product-Engineer-II_WD30281729",
+     "location": "York-Pennsylvania-United States of America"
+    },
+    {
+     "id": "WD30281727",
+     "title": "Sr Product Engineer",
+     "url": "https://jci.wd5.myworkdayjobs.com/JCI/job/York-Pennsylvania-United-States-of-America/Sr-Product-Engineer_WD30281727",
+     "location": "York-Pennsylvania-United States of America"
+    },
+    {
+     "id": "WD30278828-1",
+     "title": "Equipment Complex Project Engineer",
+     "url": "https://jci.wd5.myworkdayjobs.com/JCI/job/Brecksville-Ohio-United-States-of-America/Equipment-Complex-Project-Engineer_WD30278828-1",
+     "location": "14 Locations"
+    }
+   ],
+   "missed_count": 4,
+   "tracked_not_in_us_list": 6
+  },
+  {
+   "company": "Insulet",
+   "us_facet": true,
+   "us_postings": 125,
+   "downloaded": 125,
+   "should_match": 6,
+   "tracked": 7,
+   "missed": [],
+   "missed_count": 0,
+   "tracked_not_in_us_list": 1
+  },
+  {
+   "company": "Gentex Corporation",
+   "us_facet": true,
+   "us_postings": 61,
+   "downloaded": 61,
+   "should_match": 6,
+   "tracked": 6,
+   "missed": [],
+   "missed_count": 0,
+   "tracked_not_in_us_list": 0
+  },
+  {
+   "company": "Merck & Co.",
+   "us_facet": false,
+   "us_postings": 844,
+   "downloaded": 844,
+   "should_match": 3,
+   "tracked": 5,
+   "missed": [],
+   "missed_count": 0,
+   "tracked_not_in_us_list": 0
+  },
+  {
+   "company": "Amgen",
+   "us_facet": true,
+   "us_postings": 972,
+   "downloaded": 972,
+   "should_match": 17,
+   "tracked": 16,
+   "missed": [
+    {
+     "id": "R-257397",
+     "title": "Manufacturing Process Tech - Solution Prep (Nights)",
+     "url": "https://amgen.wd1.myworkdayjobs.com/Careers/job/US---Rhode-Island---West-Greenwich/Manufacturing-Process-Tech---Solution-Prep--Nights-_R-257397",
+     "location": "US - Rhode Island - West Greenwich"
+    }
+   ],
+   "missed_count": 1,
+   "tracked_not_in_us_list": 0
+  },
+  {
+   "company": "Xylem",
+   "us_facet": true,
+   "us_postings": 278,
+   "downloaded": 278,
+   "should_match": 13,
+   "tracked": 18,
+   "missed": [],
+   "missed_count": 0,
+   "tracked_not_in_us_list": 5
+  },
+  {
+   "company": "Flowserve",
+   "us_facet": false,
+   "us_postings": 362,
+   "downloaded": 362,
+   "should_match": 10,
+   "tracked": 11,
+   "missed": [],
+   "missed_count": 0,
+   "tracked_not_in_us_list": 0
+  }
+ ]
+}
