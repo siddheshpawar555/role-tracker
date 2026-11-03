@@ -925,13 +925,6 @@
   "fails": 0,
   "note": "found on https://cummins.jobs/"
  },
- "188": {
-  "careers_url": "https://www.eaton.com/us/en-us/company/careers.html",
-  "config": null,
-  "discovered": "2026-11-03T03:55:34+00:00",
-  "fails": 0,
-  "note": "careers page unreachable"
- },
  "189": {
   "careers_url": "https://careers.honeywell.com/",
   "config": {
@@ -947,13 +940,6 @@
   "careers_url": "https://www.polaris.com/en-us/careers/",
   "config": null,
   "discovered": "2026-11-03T03:12:46+00:00",
-  "fails": 0,
-  "note": "no supported platform found"
- },
- "190": {
-  "careers_url": "https://www.parker.com/us/en/careers.html",
-  "config": null,
-  "discovered": "2026-11-03T03:47:16+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
@@ -1182,13 +1168,6 @@
   "fails": 0,
   "note": "no supported platform found"
  },
- "211": {
-  "careers_url": "https://www.deere.com/en/our-company/careers/",
-  "config": null,
-  "discovered": "2026-11-03T03:49:08+00:00",
-  "fails": 0,
-  "note": "no supported platform found"
- },
  "212": {
   "careers_url": "https://www.cnh.com/en-US/careers",
   "config": {
@@ -1288,13 +1267,6 @@
   "discovered": "2026-11-03T00:41:08+00:00",
   "fails": 0,
   "note": "found on https://careers.tranetechnologies.com/global/en/home"
- },
- "221": {
-  "careers_url": "https://careers.carrier.com/",
-  "config": null,
-  "discovered": "2026-11-03T03:51:24+00:00",
-  "fails": 0,
-  "note": "no supported platform found"
  },
  "222": {
   "careers_url": "https://jobs.johnsoncontrols.com/",
@@ -1550,13 +1522,6 @@
   "careers_url": "https://www.averydennison.com/en/home/careers.html",
   "config": null,
   "discovered": "2026-11-03T03:55:43+00:00",
-  "fails": 0,
-  "note": "no supported platform found"
- },
- "246": {
-  "careers_url": "https://www.corning.com/worldwide/en/careers.html",
-  "config": null,
-  "discovered": "2026-11-03T03:55:57+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },

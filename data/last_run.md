@@ -1,4 +1,4 @@
-## Job tracker run 2026-11-03T03:04:18+00:00
+## Job tracker run 2026-11-03T04:00:34+00:00
 
-Companies OK: **158** · failed: **92** · new roles: **0**
+Companies OK: **8** · failed: **5** · new roles: **0**
 
