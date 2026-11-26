@@ -2,21 +2,16 @@
  "10": {
   "careers_url": "https://www.bmwgroup.jobs/us/en.html",
   "config": null,
-  "discovered": "2026-11-25T14:48:01+00:00",
+  "discovered": "2026-11-26T00:33:03+00:00",
   "fails": 0,
   "note": "careers page unreachable"
  },
  "100": {
   "careers_url": "https://www.envistaco.com/careers",
-  "config": {
-   "host": "envista.wd1.myworkdayjobs.com",
-   "site": "envistacareers",
-   "tenant": "envista",
-   "type": "workday"
-  },
-  "discovered": "2026-11-25T15:19:25+00:00",
+  "config": null,
+  "discovered": "2026-11-26T01:04:32+00:00",
   "fails": 0,
-  "note": "found on https://careers.envistaco.com/"
+  "note": "no supported platform found"
  },
  "101": {
   "careers_url": "https://www.bausch.com/careers/",
@@ -31,14 +26,14 @@
  "103": {
   "careers_url": "https://www.revvity.com/careers",
   "config": null,
-  "discovered": "2026-11-25T15:19:44+00:00",
+  "discovered": "2026-11-26T01:04:06+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
  "104": {
   "careers_url": "https://www.bio-rad.com/en-us/corporate/careers",
   "config": null,
-  "discovered": "2026-11-25T15:19:58+00:00",
+  "discovered": "2026-11-26T01:04:21+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
@@ -50,8 +45,8 @@
    "tenant": "danaher",
    "type": "workday"
   },
-  "discovered": "2026-11-25T00:58:38+00:00",
-  "fails": 1,
+  "discovered": "2026-11-26T01:04:59+00:00",
+  "fails": 0,
   "note": "found on https://jobs.danaher.com/global/en/beckman-coulter-diagnostics"
  },
  "106": {
@@ -83,14 +78,14 @@
    "tenant": "globusmedical",
    "type": "workday"
   },
-  "discovered": "2026-11-25T15:20:19+00:00",
-  "fails": 0,
+  "discovered": "2026-11-26T01:05:51+00:00",
+  "fails": 1,
   "note": "found on https://www.globusmedical.com/about/careers/"
  },
  "11": {
   "careers_url": "https://www.mbusi.com/careers",
   "config": null,
-  "discovered": "2026-11-25T14:56:27+00:00",
+  "discovered": "2026-11-26T00:40:35+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
@@ -121,7 +116,7 @@
  "113": {
   "careers_url": "https://careers.abbvie.com/",
   "config": null,
-  "discovered": "2026-11-25T15:23:29+00:00",
+  "discovered": "2026-11-26T01:06:53+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
@@ -215,21 +210,21 @@
  "121": {
   "careers_url": "https://www.boehringer-ingelheim.com/us/careers",
   "config": null,
-  "discovered": "2026-11-25T15:22:24+00:00",
+  "discovered": "2026-11-26T01:07:04+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
  "122": {
   "careers_url": "https://www.novonordisk-us.com/careers.html",
   "config": null,
-  "discovered": "2026-11-25T15:24:38+00:00",
+  "discovered": "2026-11-26T01:08:11+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
  "124": {
   "careers_url": "https://www.bayer.com/en/careers",
   "config": null,
-  "discovered": "2026-11-25T15:23:45+00:00",
+  "discovered": "2026-11-26T01:07:18+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
@@ -241,8 +236,8 @@
    "tenant": "gilead",
    "type": "workday"
   },
-  "discovered": "2026-11-25T01:04:04+00:00",
-  "fails": 1,
+  "discovered": "2026-11-26T01:08:18+00:00",
+  "fails": 0,
   "note": "found on https://www.gilead.com/careers"
  },
  "126": {
@@ -253,7 +248,7 @@
    "tenant": "biibhr",
    "type": "workday"
   },
-  "discovered": "2026-11-25T01:05:43+00:00",
+  "discovered": "2026-11-26T01:11:06+00:00",
   "fails": 1,
   "note": "found on https://www.biogen.com/careers.html"
  },
@@ -265,9 +260,9 @@
    "tenant": "regeneron",
    "type": "workday"
   },
-  "discovered": "2026-11-25T01:05:12+00:00",
-  "fails": 1,
-  "note": "found on https://careers.regeneron.com/en/jobs/r50727/senior-business-analyst-commercial-systems-and-operations/"
+  "discovered": "2026-11-26T01:10:35+00:00",
+  "fails": 0,
+  "note": "found on https://careers.regeneron.com/en/jobs/r53311/2027-summer-law-intern-corporate-governance-securities/"
  },
  "129": {
   "careers_url": "https://www.modernatx.com/careers",
@@ -284,7 +279,7 @@
  "13": {
   "careers_url": "https://www.kiageorgia.com/careers",
   "config": null,
-  "discovered": "2026-11-25T14:53:16+00:00",
+  "discovered": "2026-11-26T00:37:26+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
@@ -296,8 +291,8 @@
    "tenant": "msd",
    "type": "workday"
   },
-  "discovered": "2026-11-24T15:24:35+00:00",
-  "fails": 1,
+  "discovered": "2026-11-26T01:11:15+00:00",
+  "fails": 0,
   "note": "found on https://jobs.merck.com/us/en"
  },
  "131": {
@@ -336,7 +331,7 @@
  "134": {
   "careers_url": "https://www.lonza.com/careers",
   "config": null,
-  "discovered": "2026-11-25T15:25:17+00:00",
+  "discovered": "2026-11-26T01:10:59+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
@@ -348,8 +343,8 @@
    "tenant": "fujifilm",
    "type": "workday"
   },
-  "discovered": "2026-11-25T01:07:01+00:00",
-  "fails": 1,
+  "discovered": "2026-11-26T01:12:59+00:00",
+  "fails": 0,
   "note": "found on https://fujifilmbiotechnologies.fujifilm.com/careers/"
  },
  "136": {
@@ -358,7 +353,7 @@
    "host": "career4.successfactors.com",
    "type": "successfactors"
   },
-  "discovered": "2026-11-25T15:25:24+00:00",
+  "discovered": "2026-11-26T01:11:13+00:00",
   "fails": 1,
   "note": "found on https://career4.successfactors.com/career?company=charlesrivP&site=&lang=en_US&requestParams=&jobPipeline=Direct&clientId=jobs2web&navBarLevel=MY_PROFILE&_s.crb=2TCqr9QHZPM%2BlCjNnoPBse8wzdwPXaWnbnf3s6fabEg%3D"
  },
@@ -370,8 +365,8 @@
    "tenant": "resilience",
    "type": "workday"
   },
-  "discovered": "2026-11-25T01:05:51+00:00",
-  "fails": 0,
+  "discovered": "2026-11-26T01:11:40+00:00",
+  "fails": 1,
   "note": "found on https://resilience.com/careers"
  },
  "138": {
@@ -382,7 +377,7 @@
    "tenant": "pciservices",
    "type": "workday"
   },
-  "discovered": "2026-11-25T15:25:53+00:00",
+  "discovered": "2026-11-26T01:11:51+00:00",
   "fails": 0,
   "note": "found on https://pciservices.wd1.myworkdayjobs.com/External"
  },
@@ -399,7 +394,7 @@
  "14": {
   "careers_url": "https://www.volvocars.com/us/careers/",
   "config": null,
-  "discovered": "2026-11-25T14:53:02+00:00",
+  "discovered": "2026-11-26T00:37:12+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
@@ -411,7 +406,7 @@
    "tenant": "siegfried",
    "type": "workday"
   },
-  "discovered": "2026-11-25T01:07:10+00:00",
+  "discovered": "2026-11-26T01:13:19+00:00",
   "fails": 1,
   "note": "found on https://www.siegfried.ch/careers/"
  },
@@ -429,7 +424,7 @@
  "142": {
   "careers_url": "https://www.lupin.com/US/careers/",
   "config": null,
-  "discovered": "2026-11-25T15:26:20+00:00",
+  "discovered": "2026-11-26T01:12:52+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
@@ -439,14 +434,14 @@
    "host": "jobs.sunpharma.com",
    "type": "radancy"
   },
-  "discovered": "2026-11-25T15:25:25+00:00",
+  "discovered": "2026-11-26T01:12:08+00:00",
   "fails": 1,
   "note": "found on https://jobs.sunpharma.com/sunpharma-career/en"
  },
  "144": {
   "careers_url": "https://www.drreddys.com/careers",
   "config": null,
-  "discovered": "2026-11-25T15:25:39+00:00",
+  "discovered": "2026-11-26T01:12:29+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
@@ -479,8 +474,8 @@
    "tenant": "micron",
    "type": "workday"
   },
-  "discovered": "2026-11-25T15:27:17+00:00",
-  "fails": 1,
+  "discovered": "2026-11-26T01:14:24+00:00",
+  "fails": 0,
   "note": "found on https://careers.micron.com/careers"
  },
  "15": {
@@ -503,21 +498,21 @@
  "154": {
   "careers_url": "https://www.fii-usa.com/careers",
   "config": null,
-  "discovered": "2026-11-25T15:30:08+00:00",
+  "discovered": "2026-11-26T01:17:24+00:00",
   "fails": 0,
   "note": "careers page unreachable"
  },
  "156": {
   "careers_url": "https://www.asml.com/en/careers",
   "config": null,
-  "discovered": "2026-11-25T15:28:03+00:00",
+  "discovered": "2026-11-26T01:17:10+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
  "157": {
   "careers_url": "https://www.nxp.com/company/about-nxp/careers:CAREERS",
   "config": null,
-  "discovered": "2026-11-25T15:29:23+00:00",
+  "discovered": "2026-11-26T01:16:17+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
@@ -577,7 +572,7 @@
    "tenant": "jabil",
    "type": "workday"
   },
-  "discovered": "2026-11-24T15:31:25+00:00",
+  "discovered": "2026-11-26T01:17:26+00:00",
   "fails": 0,
   "note": "found on https://careers.jabil.com/"
  },
@@ -596,7 +591,7 @@
  "165": {
   "careers_url": "https://www.sanmina.com/careers/",
   "config": null,
-  "discovered": "2026-11-25T15:30:31+00:00",
+  "discovered": "2026-11-26T01:18:42+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
@@ -613,7 +608,7 @@
  "167": {
   "careers_url": "https://www.skyworksinc.com/careers",
   "config": null,
-  "discovered": "2026-11-25T15:30:43+00:00",
+  "discovered": "2026-11-26T01:18:54+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
@@ -652,14 +647,14 @@
  "172": {
   "careers_url": "https://www.sandisk.com/company/careers",
   "config": null,
-  "discovered": "2026-11-25T15:31:12+00:00",
+  "discovered": "2026-11-26T01:19:23+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
  "173": {
   "careers_url": "https://www.bench.com/careers",
   "config": null,
-  "discovered": "2026-11-25T15:32:06+00:00",
+  "discovered": "2026-11-26T01:20:01+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
@@ -689,7 +684,7 @@
  "176": {
   "careers_url": "https://www.fabrinet.com/careers",
   "config": null,
-  "discovered": "2026-11-25T15:32:42+00:00",
+  "discovered": "2026-11-26T01:20:37+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
@@ -718,7 +713,7 @@
  "179": {
   "careers_url": "https://www.amphenol.com/careers",
   "config": null,
-  "discovered": "2026-11-25T15:32:58+00:00",
+  "discovered": "2026-11-26T01:20:53+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
@@ -777,7 +772,7 @@
    "tenant": "vishay",
    "type": "workday"
   },
-  "discovered": "2026-11-25T01:16:19+00:00",
+  "discovered": "2026-11-26T01:22:08+00:00",
   "fails": 1,
   "note": "found on https://jobs.vishay.com/career-areas/"
  },
@@ -795,7 +790,7 @@
  "188": {
   "careers_url": "https://www.eaton.com/us/en-us/company/careers.html",
   "config": null,
-  "discovered": "2026-11-25T15:33:55+00:00",
+  "discovered": "2026-11-26T01:21:26+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
@@ -813,21 +808,21 @@
  "19": {
   "careers_url": "https://www.polaris.com/en-us/careers/",
   "config": null,
-  "discovered": "2026-11-25T14:55:47+00:00",
+  "discovered": "2026-11-26T00:39:08+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
  "190": {
   "careers_url": "https://www.parker.com/us/en/careers.html",
   "config": null,
-  "discovered": "2026-11-25T15:34:09+00:00",
+  "discovered": "2026-11-26T01:21:40+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
  "192": {
   "careers_url": "https://www.se.com/us/en/about-us/careers/",
   "config": null,
-  "discovered": "2026-11-25T15:34:25+00:00",
+  "discovered": "2026-11-26T01:21:56+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
@@ -906,7 +901,7 @@
  "20": {
   "careers_url": "https://careers.harley-davidson.com/",
   "config": null,
-  "discovered": "2026-11-25T14:55:53+00:00",
+  "discovered": "2026-11-26T00:37:47+00:00",
   "fails": 0,
   "note": "careers page unreachable"
  },
@@ -925,12 +920,11 @@
  "202": {
   "careers_url": "https://careers.rtx.com/",
   "config": {
-   "host": "globalhr.wd5.myworkdayjobs.com",
-   "site": "REC_RTX_Ext_Gateway",
-   "tenant": "globalhr",
-   "type": "workday"
+   "host": "careers.rtx.com",
+   "prefix": "/global/en/",
+   "type": "phenom"
   },
-  "discovered": "2026-11-25T15:36:02+00:00",
+  "discovered": "2026-11-26T01:22:15+00:00",
   "fails": 0,
   "note": "found on https://careers.rtx.com/global/en"
  },
@@ -965,8 +959,8 @@
    "tenant": "boeing",
    "type": "workday"
   },
-  "discovered": "2026-11-25T01:17:20+00:00",
-  "fails": 1,
+  "discovered": "2026-11-26T01:23:17+00:00",
+  "fails": 0,
   "note": "found on https://jobs.boeing.com/"
  },
  "208": {
@@ -982,7 +976,7 @@
  "209": {
   "careers_url": "https://www.textron.com/careers",
   "config": null,
-  "discovered": "2026-11-25T15:37:19+00:00",
+  "discovered": "2026-11-26T01:23:11+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
@@ -1002,14 +996,14 @@
  "210": {
   "careers_url": "https://www.gd.com/careers",
   "config": null,
-  "discovered": "2026-11-25T15:37:56+00:00",
+  "discovered": "2026-11-26T01:25:07+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
  "211": {
   "careers_url": "https://www.deere.com/en/our-company/careers/",
   "config": null,
-  "discovered": "2026-11-25T15:38:17+00:00",
+  "discovered": "2026-11-26T01:24:29+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
@@ -1026,7 +1020,7 @@
  "213": {
   "careers_url": "https://www.agcocorp.com/careers",
   "config": null,
-  "discovered": "2026-11-25T15:38:32+00:00",
+  "discovered": "2026-11-26T01:25:21+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
@@ -1038,8 +1032,8 @@
    "tenant": "terex",
    "type": "workday"
   },
-  "discovered": "2026-11-25T01:19:29+00:00",
-  "fails": 1,
+  "discovered": "2026-11-26T01:25:45+00:00",
+  "fails": 0,
   "note": "found on https://www.terex.com/careers"
  },
  "215": {
@@ -1066,14 +1060,14 @@
  "217": {
   "careers_url": "https://www.hitachi.us/careers",
   "config": null,
-  "discovered": "2026-11-25T15:38:40+00:00",
+  "discovered": "2026-11-26T01:25:30+00:00",
   "fails": 0,
   "note": "careers page unreachable"
  },
  "218": {
   "careers_url": "https://us.mitsubishielectric.com/fa/en/about-us/careers",
   "config": null,
-  "discovered": "2026-11-25T15:39:54+00:00",
+  "discovered": "2026-11-26T01:27:53+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
@@ -1113,7 +1107,7 @@
  "221": {
   "careers_url": "https://careers.carrier.com/",
   "config": null,
-  "discovered": "2026-11-25T15:38:49+00:00",
+  "discovered": "2026-11-26T01:25:39+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
@@ -1157,7 +1151,7 @@
    "host": "careersenus-itt-inc.icims.com",
    "type": "icims"
   },
-  "discovered": "2026-11-25T15:40:39+00:00",
+  "discovered": "2026-11-26T01:27:00+00:00",
   "fails": 1,
   "note": "found on https://www.itt.com/people-careers/application-faq (browser)"
  },
@@ -1169,14 +1163,14 @@
    "tenant": "xylem",
    "type": "workday"
   },
-  "discovered": "2026-11-24T15:43:26+00:00",
+  "discovered": "2026-11-26T01:28:15+00:00",
   "fails": 1,
   "note": "found on https://www.xylem.com/en-us/careers/"
  },
  "227": {
   "careers_url": "https://www.dovercorporation.com/careers",
   "config": null,
-  "discovered": "2026-11-25T15:40:48+00:00",
+  "discovered": "2026-11-26T01:28:09+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
@@ -1216,7 +1210,7 @@
  "230": {
   "careers_url": "https://www.stanleyblackanddecker.com/careers",
   "config": null,
-  "discovered": "2026-11-25T15:45:30+00:00",
+  "discovered": "2026-11-26T01:32:55+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
@@ -1226,14 +1220,14 @@
    "host": "careers-snapon.icims.com",
    "type": "icims"
   },
-  "discovered": "2026-11-25T15:40:54+00:00",
+  "discovered": "2026-11-26T01:28:20+00:00",
   "fails": 1,
   "note": "found on https://www.snapon.com/EN/Careers"
  },
  "232": {
   "careers_url": "https://careers.generac.com/en/",
   "config": null,
-  "discovered": "2026-11-25T15:41:58+00:00",
+  "discovered": "2026-11-26T01:29:02+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
@@ -1267,9 +1261,9 @@
    "tenant": "regalrexnord",
    "type": "workday"
   },
-  "discovered": "2026-11-25T01:23:19+00:00",
-  "fails": 1,
-  "note": "found on https://careers.regalrexnord.com/en/jobs/r26_04623/cnc-programmer-i/ (browser)"
+  "discovered": "2026-11-26T01:29:14+00:00",
+  "fails": 0,
+  "note": "found on https://careers.regalrexnord.com/en/jobs/r26_06250/design-engineer-associate/"
  },
  "236": {
   "careers_url": "https://www.wabteccorp.com/careers",
@@ -1329,7 +1323,7 @@
    "host": "careers-celanese.icims.com",
    "type": "icims"
   },
-  "discovered": "2026-11-25T15:42:20+00:00",
+  "discovered": "2026-11-26T01:29:46+00:00",
   "fails": 1,
   "note": "found on https://www.celanese.com/careers"
  },
@@ -1368,14 +1362,14 @@
  "245": {
   "careers_url": "https://www.averydennison.com/en/home/careers.html",
   "config": null,
-  "discovered": "2026-11-25T15:42:28+00:00",
+  "discovered": "2026-11-26T01:29:54+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
  "246": {
   "careers_url": "https://www.corning.com/worldwide/en/careers.html",
   "config": null,
-  "discovered": "2026-11-25T15:42:43+00:00",
+  "discovered": "2026-11-26T01:30:09+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
@@ -1392,7 +1386,7 @@
  "248": {
   "careers_url": "https://www.saint-gobain-northamerica.com/careers",
   "config": null,
-  "discovered": "2026-11-25T15:42:57+00:00",
+  "discovered": "2026-11-26T01:30:23+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
@@ -1411,14 +1405,14 @@
  "25": {
   "careers_url": "https://www.borgwarner.com/careers",
   "config": null,
-  "discovered": "2026-11-25T14:57:03+00:00",
+  "discovered": "2026-11-26T00:41:17+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
  "250": {
   "careers_url": "https://www.amcor.com/careers",
   "config": null,
-  "discovered": "2026-11-25T15:43:43+00:00",
+  "discovered": "2026-11-26T01:31:08+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
@@ -1445,21 +1439,21 @@
  "28": {
   "careers_url": "https://www.autoliv.com/careers",
   "config": null,
-  "discovered": "2026-11-25T14:58:06+00:00",
+  "discovered": "2026-11-26T00:43:00+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
  "29": {
   "careers_url": "https://www.densocareers.com/",
   "config": null,
-  "discovered": "2026-11-25T14:57:18+00:00",
+  "discovered": "2026-11-26T00:42:11+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
  "3": {
   "careers_url": "https://lucidmotors.com/careers",
   "config": null,
-  "discovered": "2026-11-25T14:54:16+00:00",
+  "discovered": "2026-11-26T00:38:25+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
@@ -1471,7 +1465,7 @@
    "tenant": "valeo",
    "type": "workday"
   },
-  "discovered": "2026-11-25T00:39:07+00:00",
+  "discovered": "2026-11-26T00:43:08+00:00",
   "fails": 1,
   "note": "found on https://www.valeo.com/en/careers/"
  },
@@ -1513,8 +1507,8 @@
    "tenant": "adient",
    "type": "workday"
   },
-  "discovered": "2026-11-25T14:58:13+00:00",
-  "fails": 0,
+  "discovered": "2026-11-26T00:43:50+00:00",
+  "fails": 1,
   "note": "found on https://www.adient.com/careers/"
  },
  "35": {
@@ -1530,28 +1524,28 @@
  "36": {
   "careers_url": "https://www.brose.com/us-en/career/",
   "config": null,
-  "discovered": "2026-11-25T14:59:07+00:00",
+  "discovered": "2026-11-26T00:43:29+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
  "37": {
   "careers_url": "https://www.forvia.com/en/careers",
   "config": null,
-  "discovered": "2026-11-25T14:58:35+00:00",
+  "discovered": "2026-11-26T00:43:44+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
  "38": {
   "careers_url": "https://www.hanonsystems.com/careers",
   "config": null,
-  "discovered": "2026-11-25T14:58:51+00:00",
+  "discovered": "2026-11-26T00:44:06+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
  "39": {
   "careers_url": "https://www.yanfeng.com/en/careers",
   "config": null,
-  "discovered": "2026-11-25T14:59:39+00:00",
+  "discovered": "2026-11-26T00:44:55+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
@@ -1578,49 +1572,49 @@
  "41": {
   "careers_url": "https://www.molex.com/en-us/careers",
   "config": null,
-  "discovered": "2026-11-25T15:22:20+00:00",
+  "discovered": "2026-11-26T01:10:34+00:00",
   "fails": 0,
   "note": "careers page unreachable"
  },
  "42": {
   "careers_url": "https://www.yazaki-na.com/careers",
   "config": null,
-  "discovered": "2026-11-25T14:59:56+00:00",
+  "discovered": "2026-11-26T00:44:23+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
  "43": {
   "careers_url": "https://www.sewsus.com/careers",
   "config": null,
-  "discovered": "2026-11-25T15:03:49+00:00",
+  "discovered": "2026-11-26T00:48:15+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
  "44": {
   "careers_url": "https://www.jtekt-na.com/careers",
   "config": null,
-  "discovered": "2026-11-25T15:00:12+00:00",
+  "discovered": "2026-11-26T00:45:12+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
  "45": {
   "careers_url": "https://www.nskamericas.com/en/careers.html",
   "config": null,
-  "discovered": "2026-11-25T15:01:45+00:00",
+  "discovered": "2026-11-26T00:46:44+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
  "46": {
   "careers_url": "https://www.ntnamericas.com/en/careers",
   "config": null,
-  "discovered": "2026-11-25T15:02:35+00:00",
+  "discovered": "2026-11-26T00:47:15+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
  "47": {
   "careers_url": "https://www.schaeffler.us/en/career/",
   "config": null,
-  "discovered": "2026-11-25T15:02:01+00:00",
+  "discovered": "2026-11-26T00:45:27+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
@@ -1637,7 +1631,7 @@
  "5": {
   "careers_url": "https://careers.stellantis.com/",
   "config": null,
-  "discovered": "2026-11-25T14:55:04+00:00",
+  "discovered": "2026-11-26T00:39:56+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
@@ -1671,35 +1665,35 @@
  "53": {
   "careers_url": "https://www.gestamp.com/careers",
   "config": null,
-  "discovered": "2026-11-25T15:02:50+00:00",
+  "discovered": "2026-11-26T00:48:30+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
  "54": {
   "careers_url": "https://www.martinrea.com/careers/",
   "config": null,
-  "discovered": "2026-11-25T15:05:15+00:00",
+  "discovered": "2026-11-26T00:49:33+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
  "55": {
   "careers_url": "https://abctechnologies.com/careers/",
   "config": null,
-  "discovered": "2026-11-25T15:09:40+00:00",
+  "discovered": "2026-11-26T00:54:56+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
  "56": {
   "careers_url": "https://www.flex-n-gate.com/careers",
   "config": null,
-  "discovered": "2026-11-25T15:04:11+00:00",
+  "discovered": "2026-11-26T00:49:55+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
  "57": {
   "careers_url": "https://www.webasto-group.com/en/careers/",
   "config": null,
-  "discovered": "2026-11-25T15:05:45+00:00",
+  "discovered": "2026-11-26T00:50:26+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
@@ -1711,14 +1705,14 @@
    "tenant": "gentex",
    "type": "workday"
   },
-  "discovered": "2026-11-25T15:06:14+00:00",
+  "discovered": "2026-11-26T00:52:27+00:00",
   "fails": 0,
   "note": "found on https://careers.gentex.com"
  },
  "59": {
   "careers_url": "https://www.visteon.com/careers/",
   "config": null,
-  "discovered": "2026-11-25T15:06:06+00:00",
+  "discovered": "2026-11-26T00:50:47+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
@@ -1737,49 +1731,49 @@
  "60": {
   "careers_url": "https://www.tg-na.com/careers",
   "config": null,
-  "discovered": "2026-11-25T15:05:52+00:00",
+  "discovered": "2026-11-26T00:50:33+00:00",
   "fails": 0,
   "note": "careers page unreachable"
  },
  "61": {
   "careers_url": "https://www.nhkusa.com/careers",
   "config": null,
-  "discovered": "2026-11-25T15:11:12+00:00",
+  "discovered": "2026-11-26T00:56:56+00:00",
   "fails": 0,
   "note": "careers page unreachable"
  },
  "62": {
   "careers_url": "https://www.kautex.com/en/careers",
   "config": null,
-  "discovered": "2026-11-25T15:08:11+00:00",
+  "discovered": "2026-11-26T00:52:17+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
  "63": {
   "careers_url": "https://www.iacgroup.com/careers",
   "config": null,
-  "discovered": "2026-11-25T15:06:59+00:00",
+  "discovered": "2026-11-26T00:51:35+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
  "64": {
   "careers_url": "https://www.cooperstandard.com/careers/",
   "config": null,
-  "discovered": "2026-11-25T15:06:38+00:00",
+  "discovered": "2026-11-26T00:51:14+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
  "65": {
   "careers_url": "https://www.tifluidsystems.com/careers",
   "config": null,
-  "discovered": "2026-11-25T15:08:32+00:00",
+  "discovered": "2026-11-26T00:53:19+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
  "66": {
   "careers_url": "https://www.motherson.com/careers",
   "config": null,
-  "discovered": "2026-11-25T15:07:27+00:00",
+  "discovered": "2026-11-26T00:52:56+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
@@ -1799,14 +1793,14 @@
    "host": "careers-pistongroup.icims.com",
    "type": "icims"
   },
-  "discovered": "2026-11-25T15:08:18+00:00",
+  "discovered": "2026-11-26T00:53:05+00:00",
   "fails": 1,
   "note": "found on https://www.pistonautomotive.com/careers/"
  },
  "69": {
   "careers_url": "https://www.shiloh.com/careers",
   "config": null,
-  "discovered": "2026-11-25T15:10:15+00:00",
+  "discovered": "2026-11-26T00:53:50+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
@@ -1829,8 +1823,8 @@
    "tenant": "bdx",
    "type": "workday"
   },
-  "discovered": "2026-11-25T15:11:46+00:00",
-  "fails": 0,
+  "discovered": "2026-11-26T00:55:57+00:00",
+  "fails": 1,
   "note": "found on https://jobs.bd.com/en"
  },
  "73": {
@@ -1862,8 +1856,8 @@
    "tenant": "illumina",
    "type": "workday"
   },
-  "discovered": "2026-11-25T15:15:52+00:00",
-  "fails": 0,
+  "discovered": "2026-11-26T00:56:01+00:00",
+  "fails": 1,
   "note": "found on https://www.illumina.com/company/careers.html"
  },
  "76": {
@@ -1903,7 +1897,7 @@
  "8": {
   "careers_url": "https://www.nissanusa.com/about/careers.html",
   "config": null,
-  "discovered": "2026-11-25T14:53:31+00:00",
+  "discovered": "2026-11-26T00:37:41+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
@@ -1926,7 +1920,7 @@
    "tenant": "jj",
    "type": "workday"
   },
-  "discovered": "2026-11-25T00:53:04+00:00",
+  "discovered": "2026-11-26T00:57:26+00:00",
   "fails": 0,
   "note": "found on https://www.careers.jnj.com/en/"
  },
@@ -1961,8 +1955,8 @@
    "tenant": "resmed",
    "type": "workday"
   },
-  "discovered": "2026-11-25T00:56:40+00:00",
-  "fails": 1,
+  "discovered": "2026-11-26T01:01:56+00:00",
+  "fails": 0,
   "note": "found on https://careers.resmed.com/"
  },
  "86": {
@@ -1991,14 +1985,14 @@
  "88": {
   "careers_url": "https://careers.hologic.com/",
   "config": null,
-  "discovered": "2026-11-25T15:17:52+00:00",
+  "discovered": "2026-11-26T01:01:49+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
  "89": {
   "careers_url": "https://jobs.aligntech.com/",
   "config": null,
-  "discovered": "2026-11-25T15:18:48+00:00",
+  "discovered": "2026-11-26T01:03:01+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
@@ -2041,7 +2035,7 @@
    "tenant": "smithnephew",
    "type": "workday"
   },
-  "discovered": "2026-11-24T01:00:51+00:00",
+  "discovered": "2026-11-26T01:03:43+00:00",
   "fails": 1,
   "note": "found on https://www.smith-nephew.com/en/careers"
  },
@@ -2059,14 +2053,14 @@
  "95": {
   "careers_url": "https://www.masimo.com/company/careers/",
   "config": null,
-  "discovered": "2026-11-25T15:19:03+00:00",
+  "discovered": "2026-11-26T01:03:34+00:00",
   "fails": 0,
   "note": "no supported platform found"
  },
  "96": {
   "careers_url": "https://careers.integer.net/",
   "config": null,
-  "discovered": "2026-11-25T15:19:09+00:00",
+  "discovered": "2026-11-26T01:03:41+00:00",
   "fails": 0,
   "note": "careers page unreachable"
  },
@@ -2100,7 +2094,7 @@
    "tenant": "haemonetics",
    "type": "workday"
   },
-  "discovered": "2026-11-25T15:20:05+00:00",
+  "discovered": "2026-11-26T01:04:39+00:00",
   "fails": 0,
   "note": "found on https://www.haemonetics.com/careers"
  }
