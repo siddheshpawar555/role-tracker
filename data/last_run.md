@@ -1,12 +1,14 @@
-## Job tracker run 2026-11-26T14:42:29+00:00
+## Job tracker run 2026-11-27T00:33:55+00:00
 
-Companies OK: **139** · failed: **111** · new roles: **6**
+Companies OK: **158** · failed: **92** · new roles: **8**
 
 | Company | Role | Location | Family |
 |---|---|---|---|
-| Adient | [Quality Engineer](https://adient.wd3.myworkdayjobs.com/External/job/Loznica/Quality-Engineer_R-29899) | Loznica | Quality Engineer |
-| Lockheed Martin | [Quality Engineer - E2](https://lockheedmartin.eightfold.ai/careers/job/996478131972) | Grand Prairie, TX | Quality Engineer |
-| Lockheed Martin | [Quality Engineer Asc - E1](https://lockheedmartin.eightfold.ai/careers/job/996478132567) | Arlington, TX | Quality Engineer |
-| GE Aerospace | [Sr Sourcing Manager - Supplier Quality Engineering](https://geaerospace.wd5.myworkdayjobs.com/GE_ExternalSite/job/Changwon-48-KR-6/Sr-Sourcing-Manager-3---Supplier-Quality-Engineering_R5043688-1) | Changwon 48 KR 6 | Supplier Quality Engineer |
-| L3Harris Technologies | [Lead, Project Engineering](https://careers.l3harris.com/en/job/fort-wayne/lead-project-engineering/4832/103797420416) | Fort Wayne, IN | Manufacturing Project Engineer |
-| Lockheed Martin | [Project Engineer Sr - E3](https://lockheedmartin.eightfold.ai/careers/job/996477333546) | Cape Canaveral, FL | Manufacturing Project Engineer |
+| RTX | [Industrial Engineer/CORE Continuous Improvement Lead (Onsite)](https://globalhr.wd5.myworkdayjobs.com/REC_RTX_Ext_Gateway/job/US-IL-ROCKFORD-P6--4747-Harrison-Ave--4747-HARRISON-AVE-P6/Industrial-Engineer-CORE-Continuous-Improvement-Lead--Onsite-_01890274-1) | US-IL-ROCKFORD-P6 ~ 4747 Harrison Ave ~ 4747 HARRISON AVE-P6 | Industrial Engineer |
+| ABB | [Manufacturing Process Engineer - 2nd Shift](https://careers.abb/global/en/job/JR00042125) | Senatobia, Mississippi, United States of America | Process Engineer |
+| ABB | [Manufacturing Process Engineer](https://careers.abb/global/en/job/JR00048000) | Senatobia, Mississippi, United States of America | Process Engineer |
+| Siegfried | [Site OPEX Lead](https://siegfried.wd103.myworkdayjobs.com/external/job/Zofingen/Site-OPEX-Lead_R26_732) | Zofingen | Operational Excellence / Lean Engineer |
+| Intel | [Sr SOC Emulation Validation Engineer](https://intel.wd1.myworkdayjobs.com/External/job/Malaysia-Penang/Sr-SOC-Emulation-Validation-Engineer_JR0289048-1) | 2 Locations | Validation Engineer |
+| Takeda Pharmaceuticals | [Audit, Inspection Readiness & CAPA Lead](https://jobs.takeda.com/job/bengaluru/audit-inspection-readiness-and-capa-lead/1113/103835540704) |  | Quality Systems / CAPA Engineer |
+| Flex | [Manufacturing Technical Program Manager – NPI](https://flextronics.wd1.myworkdayjobs.com/Careers/job/USA-TX-Austin/Technical-Program-Manager_WD234927) | USA, TX, Austin | Advanced Manufacturing / NPI Engineer |
+| Johnson Controls | [HVAC Product Engineer](https://jci.wd5.myworkdayjobs.com/JCI/job/Torreon-Coahuila-Mexico/HVAC-Product-Engineer_WD30281497) | 2 Locations | Product / DFM Engineer |
